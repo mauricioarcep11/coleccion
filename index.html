@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,7 +16,9 @@
         <header class="site-header">
             <div class="top-bar">
                 <div class="logo-area" style="display: flex; align-items: center; gap: 10px;">
-                    <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+                    <button class="brand-mark" id="characterIcon" type="button" aria-label="Reproducir animación del personaje">
+                        <img src="CHARACTER/choriginal.png" alt="">
+                    </button>
                     <a class="logo-text" href="#inicio" aria-label="Inicio de la colección">
                         <span class="nombre-negro">MAURICIO</span> <span class="nombre-acento">ARCE</span>
                     </a>
@@ -23,6 +26,8 @@
                 <nav class="view-tabs" aria-label="Secciones de la colección">
                     <button class="view-tab active" type="button" data-view="albums" aria-selected="true">Discos</button>
                     <button class="view-tab" type="button" data-view="concerts" aria-selected="false">Conciertos</button>
+                    <button class="view-tab" type="button" data-view="travel" aria-selected="false">Viajes</button>
+                    <button class="view-tab" type="button" data-view="map" aria-selected="false">Mapa</button>
                 </nav>
                 <button class="random-button albums-only-control" id="randomBtn" type="button" aria-label="Encontrar una canción al azar">
                     <span aria-hidden="true">↝</span>
@@ -40,9 +45,22 @@
                     <span class="palabra-negra">de</span>
                     <span class="palabra-acento">discos.</span>
                 </h1>
-                <p class="descripcion">Una selección de álbumes para perderse, volver y encontrar algo nuevo en cada vuelta.</p>
+                <p class="descripcion">Una colección de todos los discos en mi colección.</p>
+                <div id="estante" class="estante-interactivo" aria-live="polite">
+                    <div class="fondo-repisa" aria-hidden="true"></div>
+                    <div id="columnasActivas" class="lomos-contenedor"></div>
+                    <div id="tarjetaFlotante" class="tarjeta-flotante oculta" role="status" aria-live="polite">
+                        <img id="flotanteImg" src="" alt="">
+                        <div class="flotante-info">
+                            <h4 id="flotanteTitulo">Título</h4>
+                            <p id="flotanteArtista">Artista</p>
+                            <span id="flotanteLugar">Lugar</span>
+                        </div>
+                    </div>
+                </div>
                 <div class="buscador-container">
                     <input type="text" id="buscador" placeholder="Busca una canción, álbum, artista o lugar..." autocomplete="off">
+                    <a class="spotify-link random-spotify-link" id="randomSpotifyBtn" href="#" target="_blank" rel="noopener" hidden aria-label="Buscar la canción aleatoria en Spotify" title="Buscar canción aleatoria en Spotify">♫</a>
                 </div>
             </div>
         </header>
@@ -51,14 +69,22 @@
             <section id="albumsView" class="view-panel">
                 <section class="collection-heading">
                     <div>
-                        <p class="section-label">La colección <span id="resultCount">14</span></p>
+                        <div class="section-labels">
+                            <p class="section-label">La colección <span id="resultCount">15</span></p>
+                            <p class="section-label">CANCIONES <span id="albumTotalSongs">213</span></p>
+                        </div>
                         <h2>Discos</h2>
                     </div>
-                    <p class="sort-note">Ordenados por <strong>fecha de concierto</strong> <span aria-hidden="true">↓</span></p>
+                    <p class="sort-note">Ordenados por <strong>fecha de modificación</strong> <span aria-hidden="true">↓</span></p>
                 </section>
 
-                <div id="estante" class="grid-container" aria-live="polite">
-                    <!-- Los discos aparecerán aquí -->
+                <div id="albumGrid" class="grid-container" aria-live="polite"></div>
+                <div id="albumSongsView" class="songs-view" hidden>
+                    <div class="songs-view-heading">
+                        <span>Lista completa</span>
+                        <span id="albumSongsCount">00 canciones</span>
+                    </div>
+                    <ol id="albumSongsList" class="songs-list" aria-live="polite"></ol>
                 </div>
                 <p id="emptyState" class="empty-state" hidden>No encontramos ese disco. Prueba con otro nombre o artista.</p>
             </section>
@@ -66,23 +92,63 @@
             <section id="concertsView" class="view-panel" hidden>
                 <section class="collection-heading">
                     <div>
-                        <p class="section-label">Mis conciertos <span id="concertCount">00</span></p>
+                        <div class="section-labels">
+                            <p class="section-label">Mis conciertos <span id="concertCount">00</span></p>
+                            <p class="section-label">MIS CANCIONES <span id="concertTotalSongs">235</span></p>
+                        </div>
                         <h2>En vivo</h2>
                     </div>
                     <p class="sort-note">Ordenados por <strong>fecha de concierto</strong> <span aria-hidden="true">↓</span></p>
                 </section>
 
                 <div id="concertShelf" class="grid-container" aria-live="polite"></div>
+                <div id="concertSongsView" class="songs-view" hidden>
+                    <div class="songs-view-heading">
+                        <span>Lista completa</span>
+                        <span id="concertSongsCount">00 canciones</span>
+                    </div>
+                    <ol id="concertSongsList" class="songs-list" aria-live="polite"></ol>
+                </div>
                 <p id="concertEmptyState" class="empty-state">Aún no hay conciertos añadidos.</p>
+            </section>
+
+            <section id="travelView" class="view-panel" hidden>
+                <section class="collection-heading">
+                    <div>
+                        <div class="section-labels">
+                            <p class="section-label">Mi colección <span id="travelCount">04</span></p>
+                        </div>
+                        <h2>Viajes</h2>
+                    </div>
+                    <p class="sort-note">Ordenados por <strong>viaje más reciente</strong> <span aria-hidden="true">↓</span></p>
+                </section>
+                <div id="travelGrid" class="travel-grid" aria-live="polite"></div>
+            </section>
+
+            <section id="mapView" class="view-panel" hidden>
+                <section class="collection-heading map-heading">
+                    <div>
+                        <div class="section-labels">
+                            <p class="section-label">Lugares <span id="mapLocationCount">00</span></p>
+                        </div>
+                        <h2>El mapa</h2>
+                    </div>
+                    <div class="map-legend" aria-label="Leyenda del mapa">
+                        <span><i class="legend-dot album-dot"></i>Discos</span>
+                        <span><i class="legend-dot concert-dot"></i>Conciertos</span>
+                    </div>
+                </section>
+                <div id="collectionMap" class="collection-map" aria-label="Mapa de lugares de discos y conciertos"></div>
             </section>
         </main>
 
         <footer class="site-footer">
             <span>Colección de Mauricio Arce.</span>
             <span class="footer-rule"></span>
-            <span id="footerCount">14 discos en el estante</span>
+            <span id="footerCount">15 discos en el estante</span>
         </footer>
     </div>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
     <script src="app.js"></script>
 </body>
 </html>
