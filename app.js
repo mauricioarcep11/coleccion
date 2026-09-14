@@ -1,5 +1,268 @@
 const miColeccion = [
     {
+        id: 28,
+        album: "Hotel California",
+        artista: "The Eagles",
+        lugarCompra: "Lima, Perú",
+        imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTC_mpRQYDXAesTK4expBk6M4cvp8oY_QID-Y6dAMRkag&s=10",
+        canciones: [
+            "Hotel California",
+            "New Kid In Town",
+            "Life In The Fast Lane",
+            "Wasted Time",
+            "Wasted Time (Reprise)",
+            "Victim Of Love",
+            "Pretty Maids All In A Row",
+            "Try And Love Again",
+            "The Last Resort"
+        ]
+    },
+    {
+        id: 27,
+        album: "An Innocent Man",
+        artista: "Billy Joel",
+        lugarCompra: "Lima, Perú",
+        imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNBmm52DSgSLOaMgIy8SB3FN9XB9MdcNFvtLeFKvokyA&s=10",
+        canciones: [
+            "Easy Money",
+            "An Innocent Man",
+            "The Longest Time",
+            "This Night",
+            "Tell Her About It",
+            "Uptown Girl",
+            "Careless Talk",
+            "Christie Lee",
+            "Leave A Tender Moment Alone",
+            "Keeping The Faith"
+        ]
+    },
+    {
+        id: 26,
+        album: "Wings Greatest",
+        artista: "Paul McCartney & Wings",
+        lugarCompra: "Lima, Perú",
+        imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIQ89M_aH40cnd952vUkPIMXqss8qZKd1XiErmJspZIw&s=10",
+        canciones: [
+            "Another Day",
+            "Silly Love Songs",
+            "Live And Let Die",
+            "Junior's Farm",
+            "With A Little Luck",
+            "Band On The Run",
+            "Uncle Albert / Admiral Halsey",
+            "Hi, Hi, Hi",
+            "Let 'Em In",
+            "My Love",
+            "Jet",
+            "Mull Of Kintyre"
+        ]
+    },
+    {
+        id: 25,
+        album: "Blood On The Tracks",
+        artista: "Bob Dylan",
+        lugarCompra: "Varese, Italia",
+        imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOuXJu6Jo-_Moru5TvX-AqB66MZtee-yIijZ37QQRQhQ&s=10",
+        canciones: [
+            "Tangled Up In Blue",
+            "Simple Twist Of Fate",
+            "You're A Big Girl Now",
+            "Idiot Wind",
+            "You're Gonna Make Me Lonesome When You Go",
+            "Meet Me In The Morning",
+            "Lily, Rosemary And The Jack Of Hearts",
+            "If You See Her, Say Hello",
+            "Shelter From The Storm",
+            "Buckets Of Rain"
+        ]
+    },
+    {
+        id: 24,
+        album: "Hey Jude (The Beatles Again)",
+        artista: "The Beatles",
+        lugarCompra: "Varese, Italia",
+        imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQRcQ6GH2yN-yn8-zSEroAv9o60QAvs66Hn2kg4WD9vw&s=10",
+        canciones: [
+            "Can't Buy Me Love",
+            "I Should Have Known Better",
+            "Paperback Writer",
+            "Rain",
+            "Lady Madonna",
+            "Revolution",
+            "Hey Jude",
+            "Old Brown Shoe",
+            "Don't Let Me Down",
+            "Ballad Of John & Yoko"
+        ]
+    },
+    {
+        id: 23,
+        album: "19 Días y 500 Noches",
+        artista: "Joaquín Sabina",
+        lugarCompra: "Madrid, España",
+        imagen: "https://i.scdn.co/image/ab67616d0000b27359752909ea6be0c68a1b355e",
+        canciones: [
+            "Ahora Que...",
+            "19 Días Y 500 Noches",
+            "Barbi Superestar",
+            "Una Canción Para La Magdalena",
+            "Dieguitos Y Mafaldas",
+            "A Mis Cuarenta Y Diez",
+            "El Caso De La Rubia Platino",
+            "Donde Habita El Olvido",
+            "Cerrado Por Derribo",
+            "Pero Qué Hermosas Eran",
+            "De Purísima Y Oro",
+            "Como Te Digo Una \"Co\" Te Digo La \"O\"",
+            "Noches De Boda"
+        ]
+    },
+    {
+        id: 22,
+        album: "Lo Mejor de… Julio Iglesias",
+        artista: "Julio Iglesias",
+        lugarCompra: "Lima, Perú",
+        imagen: "https://scontent.flim19-1.fna.fbcdn.net/v/t39.30808-6/489648059_1210025050922316_979389003186652869_n.jpg?stp=dst-jpg_tt6&cstp=mx2048x2048&ctp=s590x590&_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_ohc=pWIDfGvL9tEQ7kNvwGXgZeZ&_nc_oc=AdpogZN0fVWyNgm1bDVdzCXy6U8Gy5j0ahmAVNYijhlYwqVknU64YPrxRjUhUZ4l33Y&_nc_zt=23&_nc_ht=scontent.flim19-1.fna&_nc_gid=wjqZjGztJZ6NGMUUsln8Cg&_nc_ss=7a289&oh=00_AQLZNgU04uX4HG7-8I69-rb0g0S_ocH6coRuh2e39M_ZjQ&oe=6AA8C00D",
+        canciones: [
+            "No Soy De Aquí",
+            "Lágrimas Tiene El Camino",
+            "Gwendolyne",
+            "Así Nacemos",
+            "La Vida Sigue Igual",
+            "No Llores Mi Amor",
+            "A Veces Llegan Cartas",
+            "A Flor De Piel",
+            "Cuando Vuelva A Amanecer",
+            "Desde Que Tú Te Has Ido",
+            "Manuela",
+            "Ese Día Llegará"
+        ]
+    },
+    {
+        id: 21,
+        album: "A Collection Of Beatles Oldies",
+        artista: "The Beatles",
+        lugarCompra: "Londres, Inglaterra",
+        imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2ERciJgB-1NaNGK1pyxGjwegXwRfqNaxX7y9uU_JfKw&s=10",
+        canciones: [
+            "She Loves You",
+            "From Me To You",
+            "We Can Work It Out",
+            "Help!",
+            "Michelle",
+            "Yesterday",
+            "I Feel Fine",
+            "Yellow Submarine",
+            "Can't Buy Me Love",
+            "Bad Boy",
+            "Day Tripper",
+            "A Hard Day's Night",
+            "Ticket To Ride",
+            "Paperback Writer",
+            "Eleanor Rigby",
+            "I Want To Hold Your Hand"
+        ]
+    },
+    {
+        id: 20,
+        album: "Goodbye Yellow Brick Road",
+        artista: "Elton John",
+        lugarCompra: "Mánchester, Inglaterra",
+        imagen: "https://upload.wikimedia.org/wikipedia/en/8/86/Elton_John_-_Goodbye_Yellow_Brick_Road.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail_unscaled",
+        canciones: [
+            "Funeral For A Friend",
+            "Love Lies Bleeding",
+            "Candle In The Wind",
+            "Bennie And The Jets",
+            "Goodbye Yellow Brick Road",
+            "This Song Has No Title",
+            "Grey Seal",
+            "Jamaica Jerk-Off",
+            "I've Seen That Movie Too",
+            "Sweet Painted Lady",
+            "The Ballad Of Danny Bailey (1909-34)",
+            "Dirty Little Girl",
+            "All The Girls Love Alice",
+            "Your Sister Can't Twist (But She Can Rock 'n Roll)",
+            "Saturday Night's Alright For Fighting",
+            "Roy Rogers",
+            "Social Disease",
+            "Harmony"
+        ]
+    },
+    {
+        id: 19,
+        album: "Innamorarsi Alla Mia Età",
+        artista: "Julio Iglesias",
+        lugarCompra: "Varese, Italia",
+        imagen: "https://m.media-amazon.com/images/I/51r9oe-7+vL._UF1000,1000_QL80_.jpg",
+        canciones: [
+            "Non Si Vive Così",
+            "Innamorarsi Alla Mia Età",
+            "Quasi Un Santo",
+            "La Nostra Buona Educazione",
+            "Un Giorno Tu Un Giorno Io",
+            "Se Tornassi",
+            "A Meno Che",
+            "Quando Si Ama Davvero",
+            "Chi Mi Aspettava Non È Più Là",
+            "Amo Te"
+        ]
+    },
+    {
+        id: 18,
+        album: "Ás Vezes Tu Ás Vezes Eu",
+        artista: "Julio Iglesias",
+        lugarCompra: "Rio de Janeiro, Brasil",
+        imagen: "https://images.eil.com/large_image/JULIO_IGLESIAS_AS%2BVEZES%2BTU%2C%2BAS%2BVEZES%2BEU-722322.jpg",
+        canciones: [
+            "A Veces Tú / A Veces Yo (Ás Vezes Tu, Ás Vezes Eu)",
+            "El Amor (O Amor)",
+            "Seguiré Mi Camino (Seguirei Meu Caminho)",
+            "Gavilán O Paloma (Amigo)",
+            "Donde Estarás (Onde Estarás)",
+            "Soy Un Truhán Soy Un Señor (Sou Um Charlatão Sou Um Senhor)",
+            "Limelight (Vem)",
+            "Se Mi Lasci Non Vale (Se Me Deixas, Não Vale)",
+            "Quiero (Quero)",
+            "Júrame (Jura-me)"
+        ]
+    },
+    {
+        id: 17,
+        album: "Love Songs",
+        artista: "The Beatles",
+        lugarCompra: "Atenas, Grecia",
+        imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfGKR1c-n3oH8fCrdbR-30g9OkqN1g7O1OSvbkFpldYw&s=10",
+        canciones: [
+            "Yesterday",
+            "I'll Follow The Sun",
+            "I Need You",
+            "Girl",
+            "In My Life",
+            "Words Of Love",
+            "Here There And Everywhere",
+            "Something",
+            "And I Love Her",
+            "If I Fell",
+            "I'll Be Back",
+            "Tell Me What You See",
+            "Yes It Is",
+            "Michelle",
+            "It's Only Love",
+            "You're Going To Lose That Girl",
+            "Every Little Thing",
+            "For No One",
+            "She's Leaving Home",
+            "The Long And Winding Road",
+            "This Boy",
+            "Norwegian Wood (This Bird Has Flown)",
+            "You've Got To Hide Your Love Away",
+            "I Will",
+            "P.S. I Love You"
+        ]
+    },
+    {
         id: 16,
         album: "Romances",
         artista: "Julio Iglesias",
@@ -274,26 +537,6 @@ const miColeccion = [
         ]
     },
     {
-        id: 4,
-        album: "ABBA GREATEST HITS VOL.2",
-        artista: "ABBA",
-        lugarCompra: "Viena, Suiza",
-        imagen: "https://i.discogs.com/of1Ay8sOFLqr6XsTZdKwu-Bga7kM24ccRCvnArJAF8s/rs:fit/g:sm/q:90/h:594/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTQ3MzQx/NDItMTU0MDYzMTkz/My00ODg1LmpwZWc.jpeg",
-        canciones: [
-            "Gimme! Gimme! Gimme! (A Man After Midnight)",
-            "Knowing Me, Knowing You",
-            "Take a Chance on Me",
-            "Money, Money, Money",
-            "SOS",
-            "Fernando",
-            "Dancing Queen",
-            "Does Your Mother Know",
-            "Eagle",
-            "Angeleyes",
-            "Chiquitita"
-        ]
-    },
-    {
         id: 5,
         album: "CHOBA B CCCP",
         artista: "Paul McCartney",
@@ -312,10 +555,37 @@ const miColeccion = [
             "Just Because",
             "Midnight Special"
         ]
+    },
+    {
+        id: 4,
+        album: "ABBA GREATEST HITS VOL.2",
+        artista: "ABBA",
+        lugarCompra: "Viena, Suiza",
+        imagen: "https://i.discogs.com/of1Ay8sOFLqr6XsTZdKwu-Bga7kM24ccRCvnArJAF8s/rs:fit/g:sm/q:90/h:594/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTQ3MzQx/NDItMTU0MDYzMTkz/My00ODg1LmpwZWc.jpeg",
+        canciones: [
+            "Gimme! Gimme! Gimme! (A Man After Midnight)",
+            "Knowing Me, Knowing You",
+            "Take a Chance on Me",
+            "Money, Money, Money",
+            "SOS",
+            "Fernando",
+            "Dancing Queen",
+            "Does Your Mother Know",
+            "Eagle",
+            "Angeleyes",
+            "Chiquitita"
+        ]
     }
 ];
 
 const shelf = document.querySelector("#estante");
+const contenedorColumnas = document.getElementById("columnasActivas");
+const albumGrid = document.querySelector("#albumGrid");
+const floatingCard = document.querySelector("#tarjetaFlotante");
+const floatingImage = document.querySelector("#flotanteImg");
+const floatingTitle = document.querySelector("#flotanteTitulo");
+const floatingArtist = document.querySelector("#flotanteArtista");
+const floatingPlace = document.querySelector("#flotanteLugar");
 const concertShelf = document.querySelector("#concertShelf");
 const searchInput = document.querySelector("#buscador");
 const count = document.querySelector("#resultCount");
@@ -325,8 +595,84 @@ const emptyState = document.querySelector("#emptyState");
 const concertEmptyState = document.querySelector("#concertEmptyState");
 const albumsView = document.querySelector("#albumsView");
 const concertsView = document.querySelector("#concertsView");
+const mapView = document.querySelector("#mapView");
+const collectionMap = document.querySelector("#collectionMap");
+const mapLocationCount = document.querySelector("#mapLocationCount");
+const travelGrid = document.querySelector("#travelGrid");
+const travelView = document.querySelector("#travelView");
+const travelCount = document.querySelector("#travelCount");
+const searchContainer = document.querySelector(".buscador-container");
 const viewTabs = document.querySelectorAll(".view-tab");
 const heroTitle = document.querySelector("#heroTitle");
+const heroDescription = document.querySelector(".descripcion");
+const characterIcon = document.querySelector("#characterIcon");
+const albumSongsView = document.querySelector("#albumSongsView");
+const concertSongsView = document.querySelector("#concertSongsView");
+const albumSongsList = document.querySelector("#albumSongsList");
+const concertSongsList = document.querySelector("#concertSongsList");
+const albumSongsCount = document.querySelector("#albumSongsCount");
+const concertSongsCount = document.querySelector("#concertSongsCount");
+const albumTotalSongs = document.querySelector("#albumTotalSongs");
+const concertTotalSongs = document.querySelector("#concertTotalSongs");
+const songModeButtons = document.querySelectorAll(".section-mode-button");
+
+const characterFrames = [
+    "CHARACTER/ch2.png",
+    "CHARACTER/ch3.png",
+    "CHARACTER/CH4.png",
+    "CHARACTER/CH5.png",
+    "CHARACTER/CH6.png"
+];
+const characterOriginal = "CHARACTER/choriginal.png";
+const characterImage = characterIcon.querySelector("img");
+let characterIsAnimating = false;
+
+characterFrames.concat(characterOriginal).forEach((source) => {
+    const image = new Image();
+    image.src = source;
+});
+
+characterIcon.addEventListener("click", () => {
+    if (characterIsAnimating) return;
+
+    characterIsAnimating = true;
+    let frameIndex = 0;
+    characterImage.src = characterFrames[frameIndex];
+
+    const showNextFrame = () => {
+        frameIndex += 1;
+        if (frameIndex === characterFrames.length) {
+            characterImage.src = characterOriginal;
+            characterIsAnimating = false;
+            return;
+        }
+
+        characterImage.src = characterFrames[frameIndex];
+        window.setTimeout(showNextFrame, 400);
+    };
+
+    window.setTimeout(showNextFrame, 400);
+});
+
+let albumSongMode = false;
+let concertSongMode = false;
+const posicionesIniciales = {
+    1: { x: 2.10809 }, 2: { x: 2.86385 }, 3: { x: 3.65247 }, 4: { x: 4.17822 }, 5: { x: 4.73682 }, 6: { x: 5.29543 }, 7: { x: 5.78831 }, 8: { x: 6.31406 }, 9: { x: 6.51121 }, 10: { x: 6.87266 }, 11: { x: 7.16839 }, 12: { x: 7.33269 },
+    13: { x: 15.2189 }, 14: { x: 16.1061 }, 15: { x: 16.4675 }, 16: { x: 16.9604 }, 17: { x: 17.3876 }, 18: { x: 18.1105 }, 19: { x: 18.5705 }, 20: { x: 18.9648 }, 21: { x: 19.3262 }, 22: { x: 19.8428 }, 23: { x: 20.1714 }, 24: { x: 20.2371 },
+    25: { x: 36.8309 }, 26: { x: 35.9766 }, 27: { x: 35.2537 }, 28: { x: 34.5637 }, 29: { x: 34.1365 }, 30: { x: 33.4136 }, 31: { x: 33.315 }, 32: { x: 32.6552 }, 33: { x: 32.1952 }, 34: { x: 31.9323 }, 35: { x: 31.7351 }, 36: { x: 31.6694 },
+    37: { x: 39.9171 }, 38: { x: 40.8639 }, 39: { x: 41.521 }, 40: { x: 41.9153 }, 41: { x: 42.1782 }, 42: { x: 42.934 }, 43: { x: 43.4926 }, 44: { x: 44.084 }, 45: { x: 44.2483 }, 46: { x: 44.7025 },
+    47: { x: 58.4047 }, 48: { x: 57.7804 }, 49: { x: 56.9918 }, 50: { x: 56.696 }, 51: { x: 61.7235 }, 52: { x: 62.5778 }, 53: { x: 63.3007 }, 54: { x: 63.6622 }, 55: { x: 64.1743 }, 56: { x: 64.8644 },
+    57: { x: 82.1685 }, 58: { x: 83.1398 }, 59: { x: 83.7873 }, 60: { x: 86.157 }, 61: { x: 81.9182 }, 62: { x: 81.491 }, 63: { x: 81.4253 }, 64: { x: 96.8815 }, 65: { x: 80.801 }, 66: { x: 94.0037 }, 67: { x: 94.6872 }, 68: { x: 95.3347 }, 69: { x: 95.8383 }
+};
+let posicionesEstante = structuredClone(posicionesIniciales);
+let columnaArrastrada = null;
+
+try {
+    const posicionesGuardadas = JSON.parse(localStorage.getItem("posicionesEstante") || localStorage.getItem("posicionesEstanteRespaldo"));
+    if (posicionesGuardadas && typeof posicionesGuardadas === "object") posicionesEstante = posicionesGuardadas;
+} catch {
+    // El estante funciona igual si el navegador bloquea el almacenamiento local.
+}
 
 const misConciertos = [
     {
@@ -638,30 +984,175 @@ const misConciertos = [
     }
 ];
 
+const viajes = [
+    {
+        titulo: "VIENA-BUDAPEST (2025)",
+        imagen: "imagenes/viena-budapest-2025.jpg",
+        enlace: "viena-budapest-2025.html"
+    },
+    {
+        titulo: "BRASIL (2025)",
+        imagen: "imagenes/brasil-2025.jpg",
+        enlace: "brasil-2025.html"
+    },
+    {
+        titulo: "EUROPA (2024-2025)",
+        imagen: "imagenes/europa-2024-2025.jpg",
+        enlace: "europa-2024-2025.html"
+    },
+    {
+        titulo: "EUROPA (2023-2024)",
+        imagen: "imagenes/europa-2023-2024.jpg",
+        enlace: "europa-2023-2024.html"
+    }
+];
+
+const mapPlaces = [
+    { name: "Lima, Perú", coordinates: [-12.0464, -77.0428], albumPlace: "Lima, Perú" },
+    { name: "Varese, Italia", coordinates: [45.8206, 8.8251], albumPlace: "Varese, Italia" },
+    { name: "Madrid, España", coordinates: [40.4168, -3.7038], albumPlace: "Madrid, España" },
+    { name: "Londres, Inglaterra", coordinates: [51.5074, -0.1278], albumPlace: "Londres, Inglaterra" },
+    { name: "Mánchester, Inglaterra", coordinates: [53.4808, -2.2426], albumPlace: "Mánchester, Inglaterra" },
+    { name: "Rio de Janeiro, Brasil", coordinates: [-22.9068, -43.1729], albumPlace: "Rio de Janeiro, Brasil" },
+    { name: "Atenas, Grecia", coordinates: [37.9838, 23.7275], albumPlace: "Atenas, Grecia" },
+    { name: "Viena, Suiza", coordinates: [48.2082, 16.3738], albumPlace: "Viena, Suiza" },
+    { name: "Miami, Estados Unidos", coordinates: [25.7617, -80.1918], concertPlace: "Kaseya Center, Miami, Estados Unidos" },
+    { name: "Lima, Perú", coordinates: [-12.0464, -77.0428], concertPlace: "Estadio Nacional, Perú" },
+    { name: "Lima, Perú", coordinates: [-12.0464, -77.0428], concertPlace: "Costa 21, Perú" },
+    { name: "Lima, Perú", coordinates: [-12.0464, -77.0428], concertPlace: "Estadio Nacional de San Marcos, Perú" }
+];
+
+let collectionMapInstance;
+
+function renderTravels() {
+    if (!travelGrid) return;
+    travelGrid.innerHTML = viajes.map((viaje, index) => `
+        <a class="travel-card" href="${viaje.enlace}" aria-label="Abrir ${viaje.titulo}" style="animation-delay: ${index * 60}ms">
+            <img class="travel-card__image" src="${viaje.imagen}" alt="${viaje.titulo}" loading="lazy">
+            <span class="travel-card__title">${viaje.titulo}</span>
+        </a>
+    `).join("");
+
+    if (travelCount) travelCount.textContent = String(viajes.length).padStart(2, "0");
+}
+
+function renderMap() {
+    if (!collectionMap || typeof L === "undefined") return;
+    if (!collectionMapInstance) {
+        collectionMapInstance = L.map(collectionMap, { scrollWheelZoom: false }).setView([25, -20], 2);
+        L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}", {
+            attribution: 'Tiles &copy; <a href="https://www.esri.com/" target="_blank" rel="noopener">Esri</a> | Sources: Esri, HERE, Garmin, FAO, NOAA, USGS, EPA, NPS',
+            maxZoom: 19
+        }).addTo(collectionMapInstance);
+    }
+
+    collectionMapInstance.eachLayer((layer) => {
+        if (layer instanceof L.Marker) collectionMapInstance.removeLayer(layer);
+    });
+
+    const markerGroups = new Map();
+    mapPlaces.forEach((place) => {
+        const entries = [];
+        if (place.albumPlace) {
+            miColeccion.filter((album) => album.lugarCompra === place.albumPlace).forEach((album) => entries.push({
+                type: "album",
+                title: album.album,
+                artist: album.artista
+            }));
+        }
+        if (place.concertPlace) {
+            misConciertos.filter((concert) => concert.lugar === place.concertPlace).forEach((concert) => entries.push({
+                type: "concert",
+                title: concert.gira,
+                artist: concert.artista
+            }));
+        }
+        if (!entries.length) return;
+        const key = `${place.name}-${entries[0].type}`;
+        const group = markerGroups.get(key) || { ...place, entries: [] };
+        group.entries.push(...entries);
+        markerGroups.set(key, group);
+    });
+
+    markerGroups.forEach((group) => {
+        const isConcert = group.entries[0].type === "concert";
+        const titles = group.entries.map((entry) => `<li><strong>${entry.title}</strong><br>${entry.artist}</li>`).join("");
+        const markerCoordinates = isConcert
+            ? [group.coordinates[0] + 0.08, group.coordinates[1] + 0.08]
+            : group.coordinates;
+        const marker = L.marker(markerCoordinates, {
+            icon: L.divIcon({
+                className: "",
+                html: `<span class="map-marker${isConcert ? " concert-marker" : ""}"></span>`,
+                iconSize: [18, 18],
+                iconAnchor: [9, 9]
+            })
+        }).addTo(collectionMapInstance);
+        marker.bindPopup(`<div class="map-popup"><h3>${group.name}</h3><p>${isConcert ? "Conciertos" : "Discos"} · ${group.entries.length} ${group.entries.length === 1 ? "registro" : "registros"}</p><ul>${titles}</ul></div>`);
+    });
+
+    mapLocationCount.textContent = String(markerGroups.size).padStart(2, "0");
+    window.setTimeout(() => collectionMapInstance.invalidateSize(), 0);
+}
+
 function renderAlbums() {
+    albumTotalSongs.textContent = miColeccion.reduce((total, album) => total + album.canciones.length, 0);
     const query = searchInput.value.trim().toLowerCase();
     const visibleAlbums = miColeccion.filter((album) => [album.album, album.artista, album.lugarCompra, ...album.canciones]
         .some((value) => value.toLowerCase().includes(query)));
 
-    visibleAlbums.sort((firstAlbum, secondAlbum) => {
-        if (firstAlbum.album === "Romances") return -1;
-        if (secondAlbum.album === "Romances") return 1;
-        if (firstAlbum.album === "On Tour In Brazil") return -1;
-        if (secondAlbum.album === "On Tour In Brazil") return 1;
-        if (firstAlbum.album === "Non Stop") return -1;
-        if (secondAlbum.album === "Non Stop") return 1;
-        if (firstAlbum.album === "10 Anos de Saudades") return -1;
-        if (secondAlbum.album === "10 Anos de Saudades") return 1;
-        if (firstAlbum.album === "Cole Español Novamente") return -1;
-        if (secondAlbum.album === "Cole Español Novamente") return 1;
-        if (firstAlbum.album === "Minhas Canções Preferidas") return -1;
-        if (secondAlbum.album === "Minhas Canções Preferidas") return 1;
-        if (firstAlbum.album === "ABBA GREATEST HITS VOL.2") return 1;
-        if (secondAlbum.album === "ABBA GREATEST HITS VOL.2") return -1;
-        return 0;
+    const visibleSongs = visibleAlbums.flatMap((album) => album.canciones.map((song) => ({
+        song,
+        source: album.album,
+        artist: album.artista
+    })));
+
+    shelf.hidden = false;
+    albumGrid.hidden = albumSongMode;
+    albumSongsView.hidden = !albumSongMode;
+    albumSongsList.innerHTML = visibleSongs.map((track) => `
+        <li><a class="track-number" href="${spotifySearchUrl(track.song, track.artist)}" target="_blank" rel="noopener" aria-label="Buscar ${track.song} de ${track.artist} en Spotify" title="Buscar en Spotify"></a><span>${track.song}</span><small>${track.source} · ${track.artist}</small></li>
+    `).join("");
+    albumSongsCount.textContent = `${visibleSongs.length} ${visibleSongs.length === 1 ? "canción" : "canciones"}`;
+
+    contenedorColumnas.innerHTML = "";
+    Array.from({ length: 69 }, (_, index) => index + 1).forEach((id, index) => {
+        const album = miColeccion[index];
+        const columna = document.createElement("div");
+        columna.className = "columna-disco disco-lomo";
+        columna.tabIndex = 0;
+        columna.dataset.albumId = String(id);
+        const posicion = posicionesEstante[id] || { x: 4 + (index / 68) * 88 };
+        columna.style.left = `${posicion.x}%`;
+        columna.style.zIndex = String(100 - index);
+        columna.setAttribute("role", "img");
+        columna.setAttribute("aria-label", album ? `Lomo de ${album.album}` : `Disco ${id} sin vincular`);
+        columna.style.backgroundImage = `url("IMAGES/disc ${id}.png")`;
+        columna.style.backgroundPosition = "center";
+        activarArrastre(columna);
+
+        if (album) {
+            const showFloatingCard = (event) => {
+                floatingImage.src = album.imagen;
+                floatingImage.alt = `Portada de ${album.album}`;
+                floatingTitle.textContent = album.album;
+                floatingArtist.textContent = album.artista;
+                floatingPlace.textContent = album.lugarCompra;
+                floatingCard.classList.remove("oculta");
+                columna.classList.add("activo");
+                moveFloatingCard(event);
+            };
+            columna.addEventListener("mouseenter", showFloatingCard);
+            columna.addEventListener("mousemove", moveFloatingCard);
+            columna.addEventListener("focus", showFloatingCard);
+            columna.addEventListener("mouseleave", () => hideFloatingCard(columna));
+            columna.addEventListener("blur", () => hideFloatingCard(columna));
+        }
+
+        contenedorColumnas.appendChild(columna);
     });
 
-    shelf.innerHTML = visibleAlbums.map((album, index) => `
+    albumGrid.innerHTML = visibleAlbums.map((album, index) => `
         <article class="album-card" tabindex="0" style="animation-delay: ${index * 60}ms">
             <div class="album-art">
                 <img src="${album.imagen}" alt="Portada de ${album.album}" loading="lazy" onerror="this.src='https://via.placeholder.com/900x900?text=Imagen+no+disponible'">
@@ -670,7 +1161,7 @@ function renderAlbums() {
                         <span>Lista de canciones</span>
                         <span>${album.canciones.length} temas</span>
                     </div>
-                    <ol>${album.canciones.map((song) => `<li>${song}</li>`).join("")}</ol>
+                    <ol>${album.canciones.map((song, index) => `<li><a class="track-number" href="${spotifySearchUrl(song, album.artista)}" target="_blank" rel="noopener" aria-label="Buscar ${song} de ${album.artista} en Spotify" title="Buscar en Spotify">${index + 1}.</a><span>${song}</span></li>`).join("")}</ol>
                 </div>
             </div>
             <div class="album-info">
@@ -681,7 +1172,7 @@ function renderAlbums() {
                         <p class="album-location">${album.lugarCompra}</p>
                     </div>
                 </div>
-                <div class="album-meta"><strong>LP</strong>${album.canciones.length} temas</div>
+                <div class="album-meta"><strong>LP</strong>${album.canciones.length} temas<a class="spotify-link" href="${spotifySearchUrl(album.album, album.artista)}" target="_blank" rel="noopener" aria-label="Buscar ${album.album} de ${album.artista} en Spotify" title="Buscar en Spotify">♫</a></div>
             </div>
         </article>
     `).join("");
@@ -690,6 +1181,58 @@ function renderAlbums() {
     count.textContent = formattedCount;
     footerCount.textContent = `${formattedCount} ${visibleAlbums.length === 1 ? "disco" : "discos"} en el estante`;
     emptyState.hidden = visibleAlbums.length !== 0;
+}
+
+function activarArrastre(columna) {
+    columna.addEventListener("pointerdown", (event) => {
+        if (event.button !== 0) return;
+        columnaArrastrada = columna;
+        columna.setPointerCapture(event.pointerId);
+        columna.classList.add("arrastrando");
+        floatingCard.classList.add("oculta");
+        event.preventDefault();
+    });
+
+    columna.addEventListener("pointermove", (event) => {
+        if (columnaArrastrada !== columna) return;
+        const shelfRect = contenedorColumnas.getBoundingClientRect();
+        const columnWidth = columna.getBoundingClientRect().width;
+        const availableWidth = shelfRect.width - columnWidth;
+        const nextX = Math.max(0, Math.min(availableWidth, event.clientX - shelfRect.left - columnWidth / 2));
+        columna.style.left = `${(nextX / shelfRect.width) * 100}%`;
+    });
+
+    const terminarArrastre = () => {
+        if (columnaArrastrada !== columna) return;
+        columna.classList.remove("arrastrando");
+        columnaArrastrada = null;
+        posicionesEstante[columna.dataset.albumId] = {
+            x: parseFloat(columna.style.left)
+        };
+        try {
+            localStorage.setItem("posicionesEstanteRespaldo", JSON.stringify(posicionesEstante));
+            localStorage.setItem("posicionesEstante", JSON.stringify(posicionesEstante));
+        } catch {
+            // El orden permanece durante la sesión aunque no se pueda guardar.
+        }
+    };
+
+    document.addEventListener("pointerup", terminarArrastre);
+    document.addEventListener("pointercancel", terminarArrastre);
+}
+
+function moveFloatingCard(event) {
+    if (!event.clientX) return;
+    const offset = 18;
+    const cardWidth = floatingCard.offsetWidth;
+    const cardHeight = floatingCard.offsetHeight;
+    floatingCard.style.left = `${Math.min(event.clientX + offset, window.innerWidth - cardWidth - 12)}px`;
+    floatingCard.style.top = `${Math.min(event.clientY + offset, window.innerHeight - cardHeight - 12)}px`;
+}
+
+function hideFloatingCard(spine) {
+    floatingCard.classList.add("oculta");
+    spine.classList.remove("activo");
 }
 
 const meses = {
@@ -712,11 +1255,41 @@ function fechaComoNumero(fecha) {
     return new Date(Number(año), meses[mes], Number(dia)).getTime();
 }
 
+function spotifySearchUrl(song, artist) {
+    return `https://open.spotify.com/search/${encodeURIComponent(`${song} ${artist}`)}`;
+}
+
+function findSpotifyTrack(query) {
+    const collection = activeView === "albums" ? miColeccion : misConciertos;
+    const tracks = collection.flatMap((entry) => entry.canciones.map((song) => ({
+        song,
+        artist: entry.artista
+    })));
+    const normalizedQuery = query.trim().toLowerCase();
+
+    return tracks.find((track) => track.song.toLowerCase() === normalizedQuery)
+        || tracks.find((track) => track.song.toLowerCase().includes(normalizedQuery));
+}
+
 function renderConcerts() {
+    concertTotalSongs.textContent = misConciertos.reduce((total, concert) => total + concert.canciones.length, 0);
     const query = searchInput.value.trim().toLowerCase();
     const visibleConcerts = misConciertos.filter((concert) => [concert.gira, concert.artista, concert.lugar, concert.fecha, ...concert.canciones]
         .some((value) => value.toLowerCase().includes(query)))
         .sort((firstConcert, secondConcert) => fechaComoNumero(secondConcert.fecha) - fechaComoNumero(firstConcert.fecha));
+
+    const visibleSongs = visibleConcerts.flatMap((concert) => concert.canciones.map((song) => ({
+        song,
+        source: concert.gira,
+        artist: concert.artista
+    })));
+
+    concertShelf.hidden = concertSongMode;
+    concertSongsView.hidden = !concertSongMode;
+    concertSongsList.innerHTML = visibleSongs.map((track) => `
+        <li><a class="track-number" href="${spotifySearchUrl(track.song, track.artist)}" target="_blank" rel="noopener" aria-label="Buscar ${track.song} de ${track.artist} en Spotify" title="Buscar en Spotify"></a><span>${track.song}</span><small>${track.source} · ${track.artist}</small></li>
+    `).join("");
+    concertSongsCount.textContent = `${visibleSongs.length} ${visibleSongs.length === 1 ? "canción" : "canciones"}`;
 
     concertShelf.innerHTML = visibleConcerts.map((concert, index) => `
         <article class="concert-card album-card" tabindex="0" style="animation-delay: ${index * 60}ms">
@@ -727,7 +1300,7 @@ function renderConcerts() {
                         <span>Repertorio de la noche</span>
                         <span>${concert.canciones.length} temas</span>
                     </div>
-                    <ol>${concert.canciones.map((song) => `<li>${song}</li>`).join("")}</ol>
+                    <ol>${concert.canciones.map((song, index) => `<li><a class="track-number" href="${spotifySearchUrl(song, concert.artista)}" target="_blank" rel="noopener" aria-label="Buscar ${song} de ${concert.artista} en Spotify" title="Buscar en Spotify">${index + 1}.</a><span>${song}</span></li>`).join("")}</ol>
                 </div>
             </div>
             <div class="album-info">
@@ -738,7 +1311,7 @@ function renderConcerts() {
                         <p class="album-location">${concert.fecha} · ${concert.lugar}</p>
                     </div>
                 </div>
-                <div class="album-meta"><strong>LIVE</strong>${concert.canciones.length} temas</div>
+                <div class="album-meta"><strong>LIVE</strong>${concert.canciones.length} temas<a class="spotify-link" href="${spotifySearchUrl(concert.artista, concert.artista)}" target="_blank" rel="noopener" aria-label="Buscar a ${concert.artista} en Spotify" title="Buscar en Spotify">♫</a></div>
             </div>
         </article>
     `).join("");
@@ -753,13 +1326,37 @@ let activeView = "albums";
 
 function setActiveView(view) {
     activeView = view;
+    const viewHash = view === "map" ? "#map" : view === "travel" ? "#viajes" : "#inicio";
+    if (window.location.hash !== viewHash) window.history.replaceState(null, "", viewHash);
+    searchInput.value = "";
     const showingAlbums = view === "albums";
+    const showingConcerts = view === "concerts";
+    const showingTravel = view === "travel";
     heroTitle.innerHTML = showingAlbums
         ? '<span class="palabra-negra">Colección</span><span class="palabra-negra">de</span><span class="palabra-acento">discos.</span>'
-        : '<span class="palabra-negra">Colección</span><span class="palabra-negra">de</span><span class="palabra-acento">conciertos.</span>';
+        : showingConcerts
+            ? '<span class="palabra-negra">Colección</span><span class="palabra-negra">de</span><span class="palabra-acento">conciertos.</span>'
+            : showingTravel
+                ? '<span class="palabra-negra">Mi</span><span class="palabra-negra">colección</span><span class="palabra-acento">de viajes.</span>'
+                : '<span class="palabra-negra">Colección</span><span class="palabra-negra">en</span><span class="palabra-acento">el mapa.</span>';
+    heroDescription.textContent = showingAlbums
+        ? "Una colección de todos los discos en mi colección."
+        : showingConcerts
+            ? "Una selección de todos los conciertos en los que he estado."
+            : showingTravel
+                ? "Una colección de las fotos que he tomado."
+                : "Una vista geográfica de mis viajes y conciertos.";
     albumsView.hidden = !showingAlbums;
-    concertsView.hidden = showingAlbums;
-    document.querySelector(".albums-only-control").hidden = !showingAlbums;
+    concertsView.hidden = !showingConcerts;
+    travelView.hidden = !showingTravel;
+    mapView.hidden = view !== "map";
+    shelf.hidden = !showingAlbums;
+    searchContainer.hidden = view === "map" || view === "travel";
+    heroDescription.hidden = view === "map";
+    document.body.classList.toggle("map-active", view === "map");
+    document.body.classList.toggle("travel-active", showingTravel);
+    document.querySelector(".albums-only-control").hidden = view === "map" || view === "travel";
+    randomSpotifyButton.hidden = true;
 
     viewTabs.forEach((tab) => {
         const isActive = tab.dataset.view === view;
@@ -768,10 +1365,19 @@ function setActiveView(view) {
     });
 
     if (showingAlbums) renderAlbums();
-    else renderConcerts();
+    else if (showingConcerts) renderConcerts();
+    else if (showingTravel) renderTravels();
+    else renderMap();
 }
 
 searchInput.addEventListener("input", () => {
+    const matchingTrack = searchInput.value.trim() ? findSpotifyTrack(searchInput.value) : null;
+    randomSpotifyButton.hidden = !matchingTrack;
+    if (matchingTrack) {
+        randomSpotifyButton.href = spotifySearchUrl(matchingTrack.song, matchingTrack.artist);
+        randomSpotifyButton.setAttribute("aria-label", `Buscar ${matchingTrack.song} en Spotify`);
+        randomSpotifyButton.title = `Buscar ${matchingTrack.song} en Spotify`;
+    }
     if (activeView === "albums") renderAlbums();
     else renderConcerts();
 });
@@ -782,23 +1388,43 @@ viewTabs.forEach((tab) => {
     });
 });
 
+songModeButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        const isAlbums = button.dataset.songMode === "albums";
+        if (isAlbums) albumSongMode = !albumSongMode;
+        else concertSongMode = !concertSongMode;
+
+        button.setAttribute("aria-pressed", String(isAlbums ? albumSongMode : concertSongMode));
+        if (isAlbums) renderAlbums();
+        else renderConcerts();
+    });
+});
+
 const homeLink = document.querySelector(".logo-text");
 
 homeLink?.addEventListener("click", (event) => {
     event.preventDefault();
     searchInput.value = "";
+    randomSpotifyButton.hidden = true;
     setActiveView("albums");
     window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
 const randomButton = document.querySelector("#randomBtn");
+const randomSpotifyButton = document.querySelector("#randomSpotifyBtn");
 
 randomButton?.addEventListener("click", () => {
-    const canciones = miColeccion.flatMap((album) => album.canciones);
-    const randomSong = canciones[Math.floor(Math.random() * canciones.length)];
-    searchInput.value = randomSong;
-    renderAlbums();
-    document.querySelector("#estante").scrollIntoView({ behavior: "smooth", block: "start" });
+    if (activeView === "map") return;
+    const canciones = activeView === "albums"
+        ? miColeccion.flatMap((album) => album.canciones.map((song) => ({ song, artist: album.artista })))
+        : misConciertos.flatMap((concert) => concert.canciones.map((song) => ({ song, artist: concert.artista })));
+    const randomTrack = canciones[Math.floor(Math.random() * canciones.length)];
+    searchInput.value = randomTrack.song;
+    randomSpotifyButton.href = spotifySearchUrl(randomTrack.song, randomTrack.artist);
+    randomSpotifyButton.hidden = false;
+    if (activeView === "albums") renderAlbums();
+    else renderConcerts();
+    searchInput.scrollIntoView({ behavior: "smooth", block: "center" });
 });
 
 document.addEventListener("keydown", (event) => {
@@ -808,4 +1434,4 @@ document.addEventListener("keydown", (event) => {
     }
 });
 
-renderAlbums();
+setActiveView(window.location.hash === "#map" ? "map" : window.location.hash === "#viajes" ? "travel" : "albums");
