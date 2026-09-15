@@ -28,6 +28,7 @@
                     <button class="view-tab" type="button" data-view="concerts" aria-selected="false">Conciertos</button>
                     <button class="view-tab" type="button" data-view="travel" aria-selected="false">Viajes</button>
                     <button class="view-tab" type="button" data-view="map" aria-selected="false">Mapa</button>
+                    <button class="view-tab" type="button" data-view="places" aria-selected="false">Lugares</button>
                 </nav>
                 <button class="random-button albums-only-control" id="randomBtn" type="button" aria-label="Encontrar una canción al azar">
                     <span aria-hidden="true">↝</span>
@@ -129,7 +130,7 @@
                 <section class="collection-heading map-heading">
                     <div>
                         <div class="section-labels">
-                            <p class="section-label">Lugares <span id="mapLocationCount">00</span></p>
+                            <p class="section-label"><span class="location-icon" aria-hidden="true"></span>Lugares <span id="mapLocationCount">00</span></p>
                         </div>
                         <h2>El mapa</h2>
                     </div>
@@ -139,6 +140,30 @@
                     </div>
                 </section>
                 <div id="collectionMap" class="collection-map" aria-label="Mapa de lugares de discos y conciertos"></div>
+            </section>
+
+            <section id="placesView" class="view-panel" hidden>
+                <section class="collection-heading places-heading">
+                    <div>
+                        <div class="section-labels">
+                            <p class="section-label"><span class="location-icon" aria-hidden="true"></span>Mi mundo <span id="placesVisitedCount">25</span></p>
+                        </div>
+                        <h2>El mapa</h2>
+                    </div>
+                    <p class="sort-note">Países que he visitado</p>
+                </section>
+                <div id="placesMap" class="places-map" aria-label="Mapa mundial de países visitados"></div>
+                <div id="placeDetails" class="place-details" aria-live="polite" hidden></div>
+                <div class="places-stats" id="placesStats">
+                    <div class="places-stat-tabs" role="tablist" aria-label="Estadísticas de viajes">
+                        <button class="places-stat-tab active" type="button" role="tab" aria-selected="true" data-stats-tab="summary">Resumen</button>
+                        <button class="places-stat-tab" type="button" role="tab" aria-selected="false" data-stats-tab="continents">Continentes</button>
+                        <button class="places-stat-tab" type="button" role="tab" aria-selected="false" data-stats-tab="more">Más estadísticas</button>
+                    </div>
+                    <div class="places-stat-panel" data-stats-panel="summary"></div>
+                    <div class="places-stat-panel" data-stats-panel="continents" hidden></div>
+                    <div class="places-stat-panel" data-stats-panel="more" hidden></div>
+                </div>
             </section>
         </main>
 

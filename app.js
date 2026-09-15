@@ -601,6 +601,12 @@ const mapLocationCount = document.querySelector("#mapLocationCount");
 const travelGrid = document.querySelector("#travelGrid");
 const travelView = document.querySelector("#travelView");
 const travelCount = document.querySelector("#travelCount");
+const placesView = document.querySelector("#placesView");
+const placesMap = document.querySelector("#placesMap");
+const placesVisitedCount = document.querySelector("#placesVisitedCount");
+const placeDetails = document.querySelector("#placeDetails");
+const placesStatTabs = document.querySelectorAll(".places-stat-tab");
+const placesStatPanels = document.querySelectorAll(".places-stat-panel");
 const searchContainer = document.querySelector(".buscador-container");
 const viewTabs = document.querySelectorAll(".view-tab");
 const heroTitle = document.querySelector("#heroTitle");
@@ -623,11 +629,19 @@ const characterFrames = [
     "CHARACTER/CH5.png",
     "CHARACTER/CH6.png"
 ];
+const travelCharacterFrames = [
+    "CHARACTER/VIAJES/chirst.png",
+    "CHARACTER/VIAJES/GIZA.png",
+    "CHARACTER/VIAJES/liberty.png",
+    "CHARACTER/VIAJES/moai.png",
+    "CHARACTER/VIAJES/venus.png"
+];
 const characterOriginal = "CHARACTER/choriginal.png";
+const characterFrameDuration = 600;
 const characterImage = characterIcon.querySelector("img");
 let characterIsAnimating = false;
 
-characterFrames.concat(characterOriginal).forEach((source) => {
+characterFrames.concat(travelCharacterFrames, characterOriginal).forEach((source) => {
     const image = new Image();
     image.src = source;
 });
@@ -636,22 +650,23 @@ characterIcon.addEventListener("click", () => {
     if (characterIsAnimating) return;
 
     characterIsAnimating = true;
+    const frames = activeView === "map" || activeView === "places" ? travelCharacterFrames : characterFrames;
     let frameIndex = 0;
-    characterImage.src = characterFrames[frameIndex];
+    characterImage.src = frames[frameIndex];
 
     const showNextFrame = () => {
         frameIndex += 1;
-        if (frameIndex === characterFrames.length) {
+        if (frameIndex === frames.length) {
             characterImage.src = characterOriginal;
             characterIsAnimating = false;
             return;
         }
 
-        characterImage.src = characterFrames[frameIndex];
-        window.setTimeout(showNextFrame, 400);
+        characterImage.src = frames[frameIndex];
+        window.setTimeout(showNextFrame, characterFrameDuration);
     };
 
-    window.setTimeout(showNextFrame, 400);
+    window.setTimeout(showNextFrame, characterFrameDuration);
 });
 
 let albumSongMode = false;
@@ -1022,6 +1037,53 @@ const mapPlaces = [
     { name: "Lima, Perú", coordinates: [-12.0464, -77.0428], concertPlace: "Estadio Nacional de San Marcos, Perú" }
 ];
 
+const visitedCountries = [
+    { name: "Austria", continent: "Europa", capital: "Vienna", livedHere: false, flag: null, cities: [] },
+    { name: "Belgium", continent: "Europa", capital: "Brussels", livedHere: false, flag: null, cities: ["Bruselas", "Brujas", "Gante"] },
+    { name: "Brazil", continent: "América", capital: "Brasília", livedHere: false, flag: null, cities: ["Rio de Janeiro"] },
+    { name: "Colombia", continent: "América", capital: "Bogotá", livedHere: false, flag: null, cities: ["San Andrés"] },
+    { name: "Costa Rica", continent: "América", capital: "San José", livedHere: true, flag: "🇨🇷", cities: ["San José"] },
+    { name: "Czech Republic", continent: "Europa", capital: "Prague", livedHere: false, flag: null, cities: [] },
+    { name: "France", continent: "Europa", capital: "Paris", livedHere: false, flag: null, cities: ["París", "Niza", "Lyon"] },
+    { name: "Germany", continent: "Europa", capital: "Berlin", livedHere: false, flag: null, cities: ["Stuttgart", "Berlin"] },
+    { name: "Greece", continent: "Europa", capital: "Athens", livedHere: false, flag: null, cities: [] },
+    { name: "Hungary", continent: "Europa", capital: "Budapest", livedHere: false, flag: null, cities: [] },
+    { name: "Italy", continent: "Europa", capital: "Rome", livedHere: false, flag: null, cities: ["Roma", "Florencia", "Pisa", "Génova", "Milán", "Turín", "Brescia", "Verona", "Venecia", "Bolonia", "Napolés", "Palermo"] },
+    { name: "Jamaica", continent: "América", capital: "Kingston", livedHere: false, flag: null, cities: [] },
+    { name: "Liechtenstein", continent: "Europa", capital: "Vaduz", livedHere: false, flag: null, cities: [] },
+    { name: "Mexico", continent: "América", capital: "Mexico City", livedHere: true, flag: "🇲🇽", cities: ["Monterrey"] },
+    { name: "Monaco", continent: "Europa", capital: "Monaco", livedHere: false, flag: null, cities: [] },
+    { name: "Netherlands", continent: "Europa", capital: "Amsterdam", livedHere: false, flag: null, cities: [] },
+    { name: "Panama", continent: "América", capital: "Panama City", livedHere: false, flag: null, cities: [] },
+    { name: "Peru", continent: "América", capital: "Lima", livedHere: true, flag: "🇵🇪", cities: ["Lima"] },
+    { name: "Romania", continent: "Europa", capital: "Bucharest", livedHere: false, flag: null, cities: ["Bucarest", "Brann", "Sinaia"] },
+    { name: "Spain", continent: "Europa", capital: "Madrid", livedHere: false, flag: null, cities: [] },
+    { name: "Switzerland", continent: "Europa", capital: "Bern", livedHere: false, flag: null, cities: ["Berna", "Ginebra", "Zúrich"] },
+    { name: "Turkey", continent: "Asia", capital: "Ankara", livedHere: false, flag: null, cities: ["Estanbul"] },
+    { name: "United Kingdom", continent: "Europa", capital: "London", livedHere: false, flag: null, cities: ["Londres", "Mánchester", "Liverpool"] },
+    { name: "United States", continent: "América", capital: "Washington D.C.", livedHere: false, flag: null, cities: [] },
+    { name: "Vatican City", continent: "Europa", capital: "Vatican City", livedHere: false, flag: null, cities: [] }
+];
+
+const countryAliases = {
+    Czechia: "Czech Republic",
+    "Holy See": "Vatican City",
+    Vatican: "Vatican City",
+    "United States of America": "United States"
+};
+const travelLinksByCountry = {
+    Brazil: "brasil-2025.html",
+    Italy: "europa-2023-2024.html",
+    Austria: "viena-budapest-2025.html",
+    Hungary: "viena-budapest-2025.html"
+};
+const placesGeoJsonUrl = "https://raw.githubusercontent.com/datasets/geo-countries/master/data/countries.geojson";
+let placesMapInstance;
+let placesGeoJsonLayer;
+let placesCountriesExpanded = false;
+let selectedPlaceCountry = null;
+let selectedPlaceLayer = null;
+
 let collectionMapInstance;
 
 function renderTravels() {
@@ -1034,6 +1096,7 @@ function renderTravels() {
     `).join("");
 
     if (travelCount) travelCount.textContent = String(viajes.length).padStart(2, "0");
+    footerCount.textContent = `${viajes.length} viajes realizados`;
 }
 
 function renderMap() {
@@ -1093,6 +1156,150 @@ function renderMap() {
 
     mapLocationCount.textContent = String(markerGroups.size).padStart(2, "0");
     window.setTimeout(() => collectionMapInstance.invalidateSize(), 0);
+}
+
+function countryName(feature) {
+    const properties = feature.properties || {};
+    const name = properties.ADMIN || properties.name || properties.NAME || "";
+    return countryAliases[name] || name;
+}
+
+function showPlaceDetails(country) {
+    placeDetails.hidden = false;
+    const placesLabel = country.livedHere ? "Ciudad en la que viví" : "Lugares que visité";
+    const places = country.cities.length ? country.cities.join(", ") : country.capital;
+    const travelLink = travelLinksByCountry[country.name] || "#viajes";
+    placeDetails.innerHTML = `
+        <div class="place-details__heading">
+            <div>
+                <p class="section-label">País</p>
+                <h3>${country.flag ? `${country.flag} ` : ""}${country.name}</h3>
+            </div>
+            ${country.livedHere ? '<span class="lived-badge">He vivido aquí</span>' : ""}
+        </div>
+        <div class="place-details__travel-row">
+            <div class="place-details__capital"><span>${placesLabel}</span><strong>${places}</strong></div>
+            <a class="place-details__travel-link" href="${travelLink}" ${travelLink === "#viajes" ? 'data-view="travel"' : ""} aria-label="${travelLinksByCountry[country.name] ? "Ver fotos del viaje" : "Abrir la pestaña de viajes"}" title="${travelLinksByCountry[country.name] ? "Ver fotos del viaje" : "Abrir Viajes"}">&#128247;</a>
+        </div>
+    `;
+    placeDetails.querySelector('[data-view="travel"]')?.addEventListener("click", (event) => {
+        event.preventDefault();
+        setActiveView("travel");
+    });
+}
+
+function renderPlacesStats() {
+    const totalVisited = visitedCountries.length;
+    const percentage = ((totalVisited / 195) * 100).toFixed(1);
+    const continentCounts = ["América", "Europa", "Oceanía", "Asia", "África"].map((continent) => ({
+        continent,
+        count: visitedCountries.filter((country) => country.continent === continent).length
+    }));
+    const visitedContinents = continentCounts.filter((item) => item.count > 0).length;
+    const visitedContinentNames = continentCounts.filter((item) => item.count > 0).map((item) => item.continent).join(" y ");
+    const livedCountries = visitedCountries.filter((country) => country.livedHere);
+    const mostExplored = continentCounts.reduce((best, item) => item.count > best.count ? item : best, continentCounts[0]);
+
+    placesVisitedCount.textContent = String(totalVisited).padStart(2, "0");
+    document.querySelector('[data-stats-panel="summary"]').innerHTML = `
+        <div class="places-summary-hero">
+            <div class="places-summary-top"><span>En total</span><span class="places-summary-kicker">Pasaporte de Mauricio</span></div>
+            <div class="places-summary-numbers">
+                <div><strong>${totalVisited}<small> / 195</small></strong><span>países visitados</span></div>
+                <div><strong>${percentage}<small>%</small></strong><span>del mundo</span></div>
+            </div>
+            <div class="places-progress"><b style="width: ${percentage}%"></b></div>
+        </div>
+        <div class="places-stat-grid places-stat-grid--compact">
+            <article class="places-stat-card places-stat-card--coral"><span>Continentes visitados</span><strong>${visitedContinents} <small>/ 5</small></strong><em>${visitedContinentNames}</em></article>
+            <article class="places-stat-card places-stat-card--acid"><span>Países restantes</span><strong>${195 - totalVisited}</strong></article>
+            <article class="places-stat-card places-stat-card--dark"><span>He vivido en</span><strong>${livedCountries.length}</strong><em>${livedCountries.map((country) => `${country.flag} ${country.name}`).join(" · ")}</em></article>
+        </div>
+        <div class="places-country-strip"><span>Mis países</span><div class="places-country-list">${visitedCountries.slice(0, placesCountriesExpanded ? totalVisited : 6).map((country) => `<b>${country.flag || "•"} ${country.name}</b>`).join("")}</div>${totalVisited > 6 ? `<button class="places-more-button" type="button" aria-expanded="${placesCountriesExpanded}">${placesCountriesExpanded ? "Mostrar menos" : `+ ${totalVisited - 6} más`}</button>` : ""}
+        </div>
+    `;
+    document.querySelector(".places-more-button")?.addEventListener("click", (event) => {
+        placesCountriesExpanded = !placesCountriesExpanded;
+        event.currentTarget.setAttribute("aria-expanded", String(placesCountriesExpanded));
+        renderPlacesStats();
+    });
+    document.querySelector('[data-stats-panel="continents"]').innerHTML = `
+        <div class="continent-cards">${continentCounts.map((item) => `
+            <article class="continent-card"><div><span>${item.continent}</span><strong>${item.count} <small>países</small></strong></div><i><b style="width: ${totalVisited ? (item.count / totalVisited) * 100 : 0}%"></b></i><em>${totalVisited ? Math.round((item.count / totalVisited) * 100) : 0}% de tus viajes</em></article>
+        `).join("")}</div>
+    `;
+    document.querySelector('[data-stats-panel="more"]').innerHTML = `
+        <div class="places-stat-grid">
+            <article class="places-stat-card"><span>Continente más explorado</span><strong>${mostExplored.continent}</strong><em>${mostExplored.count} países</em></article>
+            <article class="places-stat-card"><span>Países donde he vivido</span><strong>${livedCountries.length}</strong><em>${livedCountries.map((country) => `${country.flag} ${country.name}`).join(" · ")}</em></article>
+            <article class="places-stat-card"><span>Ciudades visitadas</span><strong>${visitedCountries.length}</strong><em>de ${visitedCountries.length} países.</em></article>
+        </div>
+    `;
+}
+
+async function renderPlaces() {
+    if (!placesMap || typeof L === "undefined") return;
+    renderPlacesStats();
+    if (!placesMapInstance) {
+        placesMapInstance = L.map(placesMap, { zoomControl: true, scrollWheelZoom: false, minZoom: 1, zoomSnap: 0.5 }).setView([35, -20], 2.5);
+    }
+    if (placesGeoJsonLayer) {
+        placesGeoJsonLayer.addTo(placesMapInstance);
+        placesMapInstance.setView([35, -20], 2.5);
+        window.setTimeout(() => placesMapInstance.invalidateSize(), 0);
+        return;
+    }
+
+    try {
+        const response = await fetch(placesGeoJsonUrl);
+        const world = await response.json();
+        placesGeoJsonLayer = L.geoJSON(world, {
+            style: (feature) => {
+                const country = visitedCountries.find((item) => item.name === countryName(feature));
+                return country ? {
+                color: "#20211e",
+                weight: 0.8,
+                fillColor: country.livedHere ? "#d7f35f" : "#e97b61",
+                fillOpacity: 0.82
+                } : {
+                color: "#b8c1bb",
+                weight: 0.55,
+                fillColor: "#dce4df",
+                fillOpacity: 0.92
+                };
+            },
+            onEachFeature: (feature, layer) => {
+                const country = visitedCountries.find((item) => item.name === countryName(feature));
+                layer.bindTooltip(country ? `${country.flag ? `${country.flag} ` : ""}${country.name} · Visitado` : countryName(feature), { direction: "top", sticky: true });
+                layer.on({
+                    mouseover: (event) => event.target.setStyle({ weight: 1.5, fillOpacity: country ? 1 : 0.98 }),
+                    mouseout: (event) => {
+                        if (event.target !== selectedPlaceLayer) placesGeoJsonLayer.resetStyle(event.target);
+                    },
+                    click: () => {
+                        if (!country) return;
+                        if (selectedPlaceCountry === country) {
+                            placesGeoJsonLayer.resetStyle(layer);
+                            selectedPlaceCountry = null;
+                            selectedPlaceLayer = null;
+                            placeDetails.hidden = true;
+                            return;
+                        }
+                        if (selectedPlaceLayer) placesGeoJsonLayer.resetStyle(selectedPlaceLayer);
+                        selectedPlaceCountry = country;
+                        selectedPlaceLayer = layer;
+                        layer.setStyle({ weight: 2, fillOpacity: 1 });
+                        showPlaceDetails(country);
+                    }
+                });
+            }
+        }).addTo(placesMapInstance);
+        placesMapInstance.fitBounds(placesGeoJsonLayer.getBounds(), { padding: [10, 10] });
+        placesMapInstance.setView([35, -20], 2.5);
+    } catch {
+        placesMap.innerHTML = '<p class="places-map-error">No se pudo cargar el mapa mundial.</p>';
+    }
+    window.setTimeout(() => placesMapInstance.invalidateSize(), 0);
 }
 
 function renderAlbums() {
@@ -1326,36 +1533,44 @@ let activeView = "albums";
 
 function setActiveView(view) {
     activeView = view;
-    const viewHash = view === "map" ? "#map" : view === "travel" ? "#viajes" : "#inicio";
+    const viewHash = view === "map" ? "#map" : view === "places" ? "#lugares" : view === "travel" ? "#viajes" : "#inicio";
     if (window.location.hash !== viewHash) window.history.replaceState(null, "", viewHash);
     searchInput.value = "";
     const showingAlbums = view === "albums";
     const showingConcerts = view === "concerts";
     const showingTravel = view === "travel";
+    const showingPlaces = view === "places";
     heroTitle.innerHTML = showingAlbums
         ? '<span class="palabra-negra">Colección</span><span class="palabra-negra">de</span><span class="palabra-acento">discos.</span>'
         : showingConcerts
             ? '<span class="palabra-negra">Colección</span><span class="palabra-negra">de</span><span class="palabra-acento">conciertos.</span>'
             : showingTravel
                 ? '<span class="palabra-negra">Mi</span><span class="palabra-negra">colección</span><span class="palabra-acento">de viajes.</span>'
-                : '<span class="palabra-negra">Colección</span><span class="palabra-negra">en</span><span class="palabra-acento">el mapa.</span>';
+                : showingPlaces
+                    ? '<span class="palabra-negra">Lugares</span><span class="palabra-negra">que he</span><span class="palabra-acento">visitado.</span>'
+                    : '<span class="palabra-negra">Colección</span><span class="palabra-negra">en</span><span class="palabra-acento">el mapa.</span>';
     heroDescription.textContent = showingAlbums
         ? "Una colección de todos los discos en mi colección."
         : showingConcerts
             ? "Una selección de todos los conciertos en los que he estado."
             : showingTravel
                 ? "Una colección de las fotos que he tomado."
-                : "Una vista geográfica de mis viajes y conciertos.";
+                : showingPlaces
+                    ? "Una vista de los países que he visitado."
+                    : "Una vista geográfica de mis viajes y conciertos.";
     albumsView.hidden = !showingAlbums;
     concertsView.hidden = !showingConcerts;
     travelView.hidden = !showingTravel;
     mapView.hidden = view !== "map";
+    placesView.hidden = !showingPlaces;
     shelf.hidden = !showingAlbums;
-    searchContainer.hidden = view === "map" || view === "travel";
-    heroDescription.hidden = view === "map";
+    searchContainer.hidden = view === "map" || view === "travel" || showingPlaces;
+    heroDescription.hidden = view === "map" || showingPlaces;
     document.body.classList.toggle("map-active", view === "map");
     document.body.classList.toggle("travel-active", showingTravel);
-    document.querySelector(".albums-only-control").hidden = view === "map" || view === "travel";
+    document.body.classList.toggle("places-active", showingPlaces);
+    if (showingPlaces) footerCount.textContent = `${visitedCountries.length} países visitados`;
+    document.querySelector(".albums-only-control").hidden = view === "map" || view === "travel" || showingPlaces;
     randomSpotifyButton.hidden = true;
 
     viewTabs.forEach((tab) => {
@@ -1367,7 +1582,8 @@ function setActiveView(view) {
     if (showingAlbums) renderAlbums();
     else if (showingConcerts) renderConcerts();
     else if (showingTravel) renderTravels();
-    else renderMap();
+    else if (view === "map") renderMap();
+    else renderPlaces();
 }
 
 searchInput.addEventListener("input", () => {
@@ -1385,6 +1601,20 @@ searchInput.addEventListener("input", () => {
 viewTabs.forEach((tab) => {
     tab.addEventListener("click", () => {
         setActiveView(tab.dataset.view);
+    });
+});
+
+placesStatTabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+        const selectedPanel = tab.dataset.statsTab;
+        placesStatTabs.forEach((item) => {
+            const isSelected = item === tab;
+            item.classList.toggle("active", isSelected);
+            item.setAttribute("aria-selected", String(isSelected));
+        });
+        placesStatPanels.forEach((panel) => {
+            panel.hidden = panel.dataset.statsPanel !== selectedPanel;
+        });
     });
 });
 
@@ -1414,15 +1644,17 @@ const randomButton = document.querySelector("#randomBtn");
 const randomSpotifyButton = document.querySelector("#randomSpotifyBtn");
 
 randomButton?.addEventListener("click", () => {
-    if (activeView === "map") return;
-    const canciones = activeView === "albums"
+    const targetView = activeView === "albums" || activeView === "concerts" ? activeView : "albums";
+    if (targetView !== activeView) setActiveView(targetView);
+
+    const canciones = targetView === "albums"
         ? miColeccion.flatMap((album) => album.canciones.map((song) => ({ song, artist: album.artista })))
         : misConciertos.flatMap((concert) => concert.canciones.map((song) => ({ song, artist: concert.artista })));
     const randomTrack = canciones[Math.floor(Math.random() * canciones.length)];
     searchInput.value = randomTrack.song;
     randomSpotifyButton.href = spotifySearchUrl(randomTrack.song, randomTrack.artist);
     randomSpotifyButton.hidden = false;
-    if (activeView === "albums") renderAlbums();
+    if (targetView === "albums") renderAlbums();
     else renderConcerts();
     searchInput.scrollIntoView({ behavior: "smooth", block: "center" });
 });
@@ -1434,4 +1666,4 @@ document.addEventListener("keydown", (event) => {
     }
 });
 
-setActiveView(window.location.hash === "#map" ? "map" : window.location.hash === "#viajes" ? "travel" : "albums");
+setActiveView(window.location.hash === "#map" ? "map" : window.location.hash === "#lugares" ? "places" : window.location.hash === "#viajes" ? "travel" : "albums");
