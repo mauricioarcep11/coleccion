@@ -4,7 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#f4efe7">
-    <title>Mi Colección de Discos</title>
+    <title>Colección de Mauricio Arce</title>
+   <script>
+  const favicons = [
+    './CHARACTER/choriginal.png',
+    './CHARACTER/ch2.png',
+    './CHARACTER/ch3.png',
+    './CHARACTER/CH4.png',
+    './CHARACTER/CH5.png',
+    './CHARACTER/CH6.png',
+    './CHARACTER/VIAJES/chirst.png',
+    './CHARACTER/VIAJES/GIZA.png',
+    './CHARACTER/VIAJES/liberty.png',
+    './CHARACTER/VIAJES/moai.png',
+    './CHARACTER/VIAJES/venus.png'
+  ];
+
+  function setRandomFavicon() {
+    const randomIcon = favicons[Math.floor(Math.random() * favicons.length)];
+
+    const existingIcons = document.querySelectorAll('link[rel*="icon"]');
+    existingIcons.forEach(link => link.remove());
+
+    const newLink = document.createElement('link');
+    newLink.id = 'dynamic-favicon';
+    newLink.rel = 'icon';
+    newLink.type = 'image/png';
+    newLink.href = randomIcon + '?v=' + Date.now();
+
+    document.head.appendChild(newLink);
+  }
+
+  setRandomFavicon();
+</script>
+</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
