@@ -57,7 +57,7 @@
                     </a>
                 </div>
                 <nav class="view-tabs" aria-label="Secciones de la colección">
-                    <button class="view-tab active" type="button" data-view="albums" aria-selected="true">Discos</button>
+                    <button class="view-tab active" id="albumsTab" type="button" data-view="albums" aria-selected="true">Discos</button>
                     <button class="view-tab" type="button" data-view="concerts" aria-selected="false">Conciertos</button>
                     <button class="view-tab" type="button" data-view="travel" aria-selected="false">Viajes</button>
                     <button class="view-tab" type="button" data-view="map" aria-selected="false">Mapa</button>
@@ -107,7 +107,19 @@
                             <p class="section-label">La colección <span id="resultCount">15</span></p>
                             <p class="section-label">CANCIONES <span id="albumTotalSongs">213</span></p>
                         </div>
-                        <h2>Discos</h2>
+                        <h2 class="album-heading">
+                            <span class="album-category-picker">
+                                <button class="album-category-trigger" id="albumCategoryTrigger" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="albumCategoryMenu">Discos</button>
+                                <div class="album-category-menu" id="albumCategoryMenu" role="group" aria-label="Categorías de discos" hidden>
+                                    <button class="album-category-option active" type="button" data-album-category="all" aria-pressed="true">Discos</button>
+                                    <button class="album-category-option" type="button" data-album-category="vinilos" aria-pressed="false">Vinilos</button>
+                                    <button class="album-category-option" type="button" data-album-category="singles" aria-pressed="false">Singles</button>
+                                    <button class="album-category-option" type="button" data-album-category="cds" aria-pressed="false">CD's</button>
+                                    <button class="album-category-option" type="button" data-album-category="dvds" aria-pressed="false">DVD's</button>
+                                    <button class="album-category-option" type="button" data-album-category="cassettes" aria-pressed="false">Cassettes</button>
+                                </div>
+                            </span>
+                        </h2>
                     </div>
                     <p class="sort-note">Ordenados por <strong>fecha de modificación</strong> <span aria-hidden="true">↓</span></p>
                 </section>

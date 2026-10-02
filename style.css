@@ -63,6 +63,14 @@ button {
 }
 
 .view-tabs { display: flex; gap: 4px; margin-left: auto; }
+.album-category-picker { position: relative; display: inline-block; }
+.album-category-trigger { display: inline-flex; align-items: center; gap: 12px; padding: 0; border: 0; color: var(--ink); background: transparent; cursor: pointer; font: inherit; }
+.album-category-trigger::after { width: 8px; height: 8px; border-right: 2px solid var(--coral); border-bottom: 2px solid var(--coral); content: ""; transform: rotate(45deg) translateY(-3px); }
+.album-category-trigger[aria-expanded="true"]::after { transform: rotate(225deg) translate(-2px, -1px); }
+.album-category-menu { position: absolute; top: calc(100% + 10px); left: 0; z-index: 20; display: grid; min-width: 170px; padding: 5px; border: 1px solid var(--line); background: var(--paper); box-shadow: 0 12px 28px rgb(32 31 28 / 12%); }
+.album-category-menu[hidden] { display: none; }
+.album-category-option { padding: 9px 11px; border: 0; color: var(--muted); background: transparent; font-family: var(--mono); font-size: 10px; text-align: left; text-transform: uppercase; }
+.album-category-option:hover, .album-category-option.active { color: var(--ink); background: rgb(32 31 28 / 5%); }
 
 .view-tab {
     padding: 8px 10px;
@@ -669,6 +677,8 @@ h2 { margin: 0; font-size: clamp(1.65rem, 3vw, 2.5rem); letter-spacing: -.07em; 
 .map-popup h3 { margin: 0 0 8px; font-size: 14px; }
 .map-popup p { margin: 0 0 8px; color: var(--muted); font-family: var(--mono); font-size: 10px; text-transform: uppercase; }
 .map-popup ul { display: grid; gap: 5px; margin: 0; padding-left: 16px; font-size: 12px; }
+.map-album-title, .map-concert-title { padding: 0; border: 0; color: var(--coral); background: transparent; cursor: pointer; font: inherit; font-weight: 700; text-align: left; }
+.map-album-title:hover, .map-album-title:focus-visible, .map-concert-title:hover, .map-concert-title:focus-visible { color: var(--ink); text-decoration: underline; }
 
 .map-marker {
     position: relative;
@@ -791,6 +801,11 @@ h2 { margin: 0; font-size: clamp(1.65rem, 3vw, 2.5rem); letter-spacing: -.07em; 
 .album-location::before { margin-right: 6px; content: "•"; color: var(--coral); }
 .album-meta { color: var(--muted); font-family: var(--mono); font-size: 9px; line-height: 1.5; text-align: right; text-transform: uppercase; }
 .album-meta strong { display: block; color: var(--ink); font-weight: 500; }
+.album-meta .album-format--vinilos { color: #2f6b52; }
+.album-meta .album-format--singles { color: #b54732; }
+.album-meta .album-format--cds { color: #345e9b; }
+.album-meta .album-format--dvds { color: #825d18; }
+.album-meta .album-format--cassettes { color: #7b4d7d; }
 .album-meta .spotify-link { display: flex; align-items: center; justify-content: center; width: 23px; min-width: 23px; height: 23px; margin: 5px 0 0 auto; padding: 0; border: 0; border-radius: 50%; color: var(--acid); background: var(--ink); box-shadow: 0 3px 0 rgba(32, 33, 30, .16); font-size: 13px; line-height: 1; text-decoration: none; transition: transform .2s, box-shadow .2s, background .2s, color .2s; }
 .album-meta .spotify-link:hover, .album-meta .spotify-link:focus-visible { color: var(--white); background: var(--coral); box-shadow: 0 5px 0 rgba(32, 33, 30, .16); transform: translateY(-2px); }
 
