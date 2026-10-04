@@ -85,6 +85,10 @@ button {
 }
 
 .view-tab:hover, .view-tab.active { border-bottom-color: var(--coral); color: var(--ink); }
+.wishlist-tab { display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
+.wishlist-tab svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.5; }
+.wishlist-tab-count { color: var(--coral); font-size: 9px; }
+.wishlist-tab { gap: 5px; }
 
 .view-panel[hidden] { display: none; }
 
@@ -433,6 +437,40 @@ h2 { margin: 0; font-size: clamp(1.65rem, 3vw, 2.5rem); letter-spacing: -.07em; 
 
 .grid-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px 20px; }
 
+.wishlist-heading { padding-bottom: 22px; }
+.wishlist-rail { display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--line); color: var(--muted); font-family: var(--mono); font-size: 9px; letter-spacing: .08em; }
+.wishlist-rail span:last-child { color: var(--ink); }
+.wishlist-rail i { display: inline-block; width: 4px; height: 4px; margin: 0 8px 2px; border-radius: 50%; background: var(--coral); }
+.wishlist-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; padding-top: 20px; }
+.wishlist-item { display: grid; grid-template-columns: minmax(96px, .82fr) 1fr; gap: 16px; min-width: 0; padding: 12px; border: 1px solid var(--line); background: rgb(255 253 248 / 62%); animation: rise .45s both; }
+.wishlist-sleeve { position: relative; display: flex; min-width: 0; aspect-ratio: 1 / 1; padding: 0; overflow: hidden; isolation: isolate; }
+.wishlist-sleeve::before, .wishlist-sleeve::after { display: none; position: absolute; z-index: -1; content: ""; pointer-events: none; }
+.wishlist-sleeve-image { display: block; flex: 1 1 auto; width: 100%; height: 100%; object-fit: cover; transition: transform .35s; }
+.wishlist-item:hover .wishlist-sleeve-image { transform: scale(1.035); }
+.wishlist-sleeve-edition { font-family: var(--mono); font-size: 8px; letter-spacing: .08em; }
+.wishlist-sleeve strong { max-width: 100%; font-size: clamp(15px, 1.5vw, 22px); line-height: 1; overflow-wrap: anywhere; }
+.wishlist-sleeve-artist { font-family: var(--mono); font-size: 8px; text-transform: uppercase; }
+.wishlist-sleeve--soy { color: #fff4df; background: #a84b36; }
+.wishlist-sleeve--soy::before { inset: 28% -25% auto 32%; height: 1px; background: currentColor; box-shadow: 0 9px currentColor, 0 18px currentColor, 0 27px currentColor, 0 36px currentColor; transform: rotate(-35deg); }
+.wishlist-sleeve--soy::after { top: 22%; right: 10%; width: 34px; height: 34px; border: 1px solid rgb(255 244 223 / 70%); border-radius: 50%; }
+.wishlist-sleeve--carne { background: #262a2b; }
+.wishlist-sleeve--carne::before { top: 0; right: 0; width: 45%; height: 100%; background: #d45c45; clip-path: polygon(100% 0, 100% 100%, 0 100%); }
+.wishlist-sleeve--starry { background-color: #28515b; background-image: radial-gradient(#f4d88e 1px, transparent 1px), radial-gradient(rgb(255 255 255 / 70%) 1px, transparent 1px); background-position: 0 0, 9px 13px; background-size: 22px 22px, 31px 31px; }
+.wishlist-sleeve--starry strong { text-shadow: 0 2px 12px #173740; }
+.wishlist-sleeve--romantic { color: #27251f; background: #d7c7ad; }
+.wishlist-sleeve--romantic::before { inset: 25% -15% auto; height: 1px; background: currentColor; box-shadow: 0 8px currentColor, 0 16px currentColor, 0 24px currentColor; transform: rotate(24deg); }
+.wishlist-sleeve--romantic::after { top: 16%; right: 12%; width: 31px; height: 31px; border: 1px solid currentColor; border-radius: 50%; }
+.wishlist-sleeve--piano { color: #20211e; background: #d7f35f; }
+.wishlist-sleeve--piano::before { inset: 30% 0 auto; height: 42%; background: repeating-linear-gradient(90deg, transparent 0 17%, #20211e 17% 20%); opacity: .8; }
+.wishlist-item-info { display: flex; min-width: 0; flex-direction: column; align-items: flex-start; padding: 3px 0; }
+.wishlist-item-meta { display: flex; width: 100%; justify-content: space-between; align-items: center; color: var(--muted); font-family: var(--mono); font-size: 9px; }
+.wishlist-format { padding: 4px 6px; border: 1px solid var(--coral); color: var(--ink); }
+.wishlist-item-info h3 { margin: auto 0 5px; font-size: 17px; line-height: 1.15; overflow-wrap: anywhere; }
+.wishlist-item-info p { margin: 0 0 14px; color: var(--muted); font-size: 12px; }
+.wishlist-item-info a { display: inline-flex; align-items: center; gap: 7px; margin-top: auto; color: var(--ink); font-family: var(--mono); font-size: 9px; text-decoration-color: var(--coral); text-underline-offset: 4px; text-transform: uppercase; }
+.wishlist-item-info a span { color: var(--coral); font-size: 13px; }
+.wishlist-item-info a:hover { color: var(--coral); }
+
 .travel-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -620,9 +658,11 @@ h2 { margin: 0; font-size: clamp(1.65rem, 3vw, 2.5rem); letter-spacing: -.07em; 
 .place-details__heading { display: flex; align-items: end; justify-content: space-between; gap: 16px; }
 .place-details .section-label { margin: 0 0 7px; font-size: 9px; }
 .place-details h3 { margin: 0; font-size: 22px; letter-spacing: -.05em; }
-.place-details__travel-row { display: flex; align-items: center; gap: 18px; margin-top: 14px; }
-.place-details__capital { display: flex; align-items: baseline; gap: 12px; color: var(--muted); font-family: var(--mono); font-size: 10px; text-transform: uppercase; }
-.place-details__capital strong { color: var(--ink); font-family: var(--sans); font-size: 15px; text-transform: none; }
+.place-details__travel-row { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-top: 14px; }
+.place-details__locations { display: grid; min-width: 0; gap: 12px; }
+.place-details__capital { display: grid; gap: 4px; color: var(--muted); font-family: var(--mono); font-size: 10px; text-transform: uppercase; }
+.place-details__capital strong { color: var(--ink); font-family: var(--sans); font-size: 15px; line-height: 1.4; overflow-wrap: anywhere; text-transform: none; }
+.place-details__city-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 18px; max-width: 640px; margin: 0; padding-left: 18px; color: var(--ink); font-family: var(--sans); font-size: 13px; }
 .place-details__travel-link { display: inline-grid; flex: 0 0 38px; place-items: center; width: 38px; height: 38px; border: 1px solid var(--ink); color: var(--ink); font-size: 19px; text-decoration: none; transition: color .2s, background .2s, transform .2s; }
 .place-details__travel-link:hover, .place-details__travel-link:focus-visible { color: var(--white); background: var(--ink); transform: translateY(-2px); }
 .lived-badge { padding: 6px 8px; color: var(--ink); background: var(--acid); font-family: var(--mono); font-size: 9px; text-transform: uppercase; }
@@ -833,8 +873,11 @@ h2 { margin: 0; font-size: clamp(1.65rem, 3vw, 2.5rem); letter-spacing: -.07em; 
     .page-shell { width: min(100% - 32px, 560px); }
     .site-header { padding-bottom: 44px; }
     .top-bar { min-height: 78px; gap: 10px; }
-    .view-tabs { order: 3; width: 100%; margin-left: 0; }
-    .view-tab { flex: 1; }
+    .view-tabs { order: 3; width: 100%; margin-left: 0; overflow-x: auto; scrollbar-width: none; }
+    .view-tabs::-webkit-scrollbar { display: none; }
+    .view-tab { flex: 0 0 auto; padding: 7px 5px; font-size: 8px; letter-spacing: 0; }
+    .wishlist-tab { gap: 3px; }
+    .wishlist-tab svg { width: 12px; height: 12px; }
     .top-bar { flex-wrap: wrap; }
     .random-button span:last-child { display: none; }
     .random-button { width: 36px; height: 36px; justify-content: center; padding: 0; }
@@ -846,17 +889,26 @@ h2 { margin: 0; font-size: clamp(1.65rem, 3vw, 2.5rem); letter-spacing: -.07em; 
     .filter-group { gap: 6px; padding-top: 16px; overflow-x: auto; }
     .filter-button { flex: 0 0 auto; }
     .collection-heading { align-items: start; padding-top: 44px; }
+    .wishlist-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    .wishlist-item { grid-template-columns: 1fr; gap: 11px; padding: 8px; }
+    .wishlist-sleeve { aspect-ratio: 1 / 1; padding: 0; }
+    .wishlist-item-info h3 { margin-top: 18px; font-size: 15px; }
+    .wishlist-rail { font-size: 8px; }
     .sort-note { display: none; }
     .map-heading { display: block; }
     .map-legend { margin-top: 18px; }
     .places-map { min-height: 300px; }
     .place-details__heading { align-items: start; flex-direction: column; }
-    .place-details__capital { margin-top: 14px; }
+    .place-details__capital { margin-top: 0; }
+    .place-details__city-list { grid-template-columns: 1fr; }
     .places-stat-grid { grid-template-columns: 1fr; }
     .places-stat-tabs { overflow-x: auto; }
     .places-stat-tab { flex: 0 0 auto; }
     .grid-container { grid-template-columns: repeat(2, 1fr); gap: 28px 14px; }
     .travel-grid { grid-template-columns: 1fr; }
+    .wishlist-grid { grid-template-columns: 1fr; }
+    .wishlist-item { grid-template-columns: minmax(100px, .65fr) 1fr; gap: 14px; padding: 10px; }
+    .wishlist-sleeve { aspect-ratio: 1 / 1; }
     .travel-card { min-height: 500px; }
     .estante-interactivo { width: 100%; }
     .songs-list { grid-template-columns: 1fr; }

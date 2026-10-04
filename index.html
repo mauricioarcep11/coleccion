@@ -62,6 +62,10 @@
                     <button class="view-tab" type="button" data-view="travel" aria-selected="false">Viajes</button>
                     <button class="view-tab" type="button" data-view="map" aria-selected="false">Mapa</button>
                     <button class="view-tab" type="button" data-view="places" aria-selected="false">Lugares</button>
+                    <button class="view-tab wishlist-tab" type="button" data-view="wishlist" aria-selected="false" aria-label="Abrir wishlist, 5 discos">
+                        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 7h14l-1.5 10h-11L3 7Z M7 7l3-4 3 4 M6 10v4 M10 10v4 M14 10v4" /></svg>
+                        <span class="wishlist-tab-count" id="wishlistTabCount">05</span>
+                    </button>
                 </nav>
                 <button class="random-button albums-only-control" id="randomBtn" type="button" aria-label="Encontrar una canción al azar">
                     <span aria-hidden="true">↝</span>
@@ -72,7 +76,7 @@
             <div class="hero-section">
                 <div class="sub-linea">
                     <span class="guion"></span>
-                    <span class="texto-pequeno">actualizado: 20/09/2026</span>
+                    <span class="texto-pequeno">actualizado: 04/10/2026</span>
                 </div>
                 <h1 class="titulo-principal" id="heroTitle">
                     <span class="palabra-negra">Colección</span>
@@ -209,6 +213,23 @@
                     <div class="places-stat-panel" data-stats-panel="continents" hidden></div>
                     <div class="places-stat-panel" data-stats-panel="more" hidden></div>
                 </div>
+            </section>
+
+            <section id="wishlistView" class="view-panel" hidden>
+                <section class="collection-heading wishlist-heading">
+                    <div>
+                        <div class="section-labels">
+                            <p class="section-label">En busca <span id="wishlistCount">05</span></p>
+                            <p class="section-label">PARA SUMAR A LA COLECCIÓN</p>
+                        </div>
+                        <h2>Wishlist</h2>
+                    </div>
+                </section>
+                <div class="wishlist-rail" aria-hidden="true">
+                    <span>SELECCIÓN ABIERTA</span>
+                    <span>03 LP <i></i> 01 CD <i></i> 01 SINGLE</span>
+                </div>
+                <div id="wishlistGrid" class="wishlist-grid" aria-live="polite"></div>
             </section>
         </main>
 

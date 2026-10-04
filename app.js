@@ -936,7 +936,7 @@ const miColeccion = [
         album: "Lo Mejor de… Julio Iglesias",
         artista: "Julio Iglesias",
         lugarCompra: "Lima, Perú",
-        imagen: "https://scontent.flim19-1.fna.fbcdn.net/v/t39.30808-6/489648059_1210025050922316_979389003186652869_n.jpg?stp=dst-jpg_tt6&cstp=mx2048x2048&ctp=s590x590&_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_ohc=pWIDfGvL9tEQ7kNvwGXgZeZ&_nc_oc=AdpogZN0fVWyNgm1bDVdzCXy6U8Gy5j0ahmAVNYijhlYwqVknU64YPrxRjUhUZ4l33Y&_nc_zt=23&_nc_ht=scontent.flim19-1.fna&_nc_gid=wjqZjGztJZ6NGMUUsln8Cg&_nc_ss=7a289&oh=00_AQLZNgU04uX4HG7-8I69-rb0g0S_ocH6coRuh2e39M_ZjQ&oe=6AA8C00D",
+        imagen: "https://http2.mlstatic.com/D_NQ_NP_2X_749740-MPE110256177871_042026-F.webp",
         canciones: [
             "No Soy De Aquí",
             "Lágrimas Tiene El Camino",
@@ -1416,6 +1416,10 @@ const travelGrid = document.querySelector("#travelGrid");
 const travelView = document.querySelector("#travelView");
 const travelCount = document.querySelector("#travelCount");
 const placesView = document.querySelector("#placesView");
+const wishlistView = document.querySelector("#wishlistView");
+const wishlistGrid = document.querySelector("#wishlistGrid");
+const wishlistCount = document.querySelector("#wishlistCount");
+const wishlistTabCount = document.querySelector("#wishlistTabCount");
 const placesMap = document.querySelector("#placesMap");
 const placesVisitedCount = document.querySelector("#placesVisitedCount");
 const placeDetails = document.querySelector("#placeDetails");
@@ -1531,7 +1535,46 @@ try {
 
 const misConciertos = [
     {
+        gira: "Raphaelísimo",
+        setlistUrl: "https://www.setlist.fm/setlist/raphael/2026/anfiteatro-del-parque-de-la-exposicion-lima-peru-7b772e9c.html",
+        artista: "Raphael",
+        fecha: "3 de octubre de 2026",
+        lugar: "Anfiteatro Parque de la Exposición, Perú",
+        imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSb3dns46W6c-Zc869ZBAob9raagfjJVCvn4-A4LrVruO1LkldFt0-OcGo&s=10",
+        canciones: [
+            "La noche",
+            "Yo sigo siendo aquel",
+            "Cierro mis ojos",
+            "Digan lo que digan",
+            "Mi gran noche",
+            "Amo",
+            "Si no estuvieras tú",
+            "Tema de amor",
+            "Los hombres lloran también",
+            "Somos",
+            "Padam, padam",
+            "La vida en rosa",
+            "Himno al amor",
+            "Malena",
+            "Estuve enamorado",
+            "Amor mío",
+            "Cuando tú no estás",
+            "Que nadie sepa mi sufrir",
+            "La Llorona",
+            "Chabuca limeña",
+            "Estar enamorado",
+            "Ámame",
+            "En carne viva",
+            "Se nos rompió el amor",
+            "Qué sabe nadie",
+            "Yo soy aquel",
+            "Escándalo",
+            "Como yo te amo"
+        ]
+    },
+    {
         gira: "Britpop",
+        setlistUrl: "https://www.setlist.fm/setlist/robbie-williams/2026/arena-1-park-lima-peru-b7e290e.html",
         artista: "Robbie Williams",
         fecha: "23 de septiembre de 2026",
         lugar: "Arena 1 Park, Perú",
@@ -1559,6 +1602,7 @@ const misConciertos = [
     },
     {
         gira: "Las Mujeres Ya No Lloran",
+        setlistUrl: "https://www.setlist.fm/setlist/shakira/2026/kaseya-center-miami-fl-1b7741c8.html",
         artista: "Shakira",
         fecha: "2 de julio de 2026",
         lugar: "Kaseya Center, Miami, Estados Unidos",
@@ -1602,6 +1646,7 @@ const misConciertos = [
     },
     {
         gira: "Got Back",
+        setlistUrl: "https://www.setlist.fm/setlist/paul-mccartney/2024/estadio-nacional-lima-peru-6b56566a.html",
         artista: "Paul McCartney",
         fecha: "27 de octubre de 2024",
         lugar: "Estadio Nacional, Perú",
@@ -1648,6 +1693,7 @@ const misConciertos = [
     },
     {
         gira: "Hola y Adiós",
+        setlistUrl: "https://www.setlist.fm/setlist/joaquin-sabina/2025/multiespacio-costa-21-lima-peru-235748ef.html",
         artista: "Joaquín Sabina",
         fecha: "17 de marzo de 2025",
         lugar: "Costa 21, Perú",
@@ -1678,6 +1724,7 @@ const misConciertos = [
     },
     {
         gira: "Loop Tour",
+        setlistUrl: "https://www.setlist.fm/setlist/ed-sheeran/2026/estadio-nacional-lima-peru-134e25dd.html",
         artista: "Ed Sheeran",
         fecha: "20 de mayo de 2026",
         lugar: "Estadio Nacional, Perú",
@@ -1713,6 +1760,7 @@ const misConciertos = [
     },
     {
         gira: "Lo que el Seco No Dijo",
+        setlistUrl: "https://www.setlist.fm/setlist/ricardo-arjona/2026/estadio-nacional-lima-peru-3b4c9078.html",
         artista: "Ricardo Arjona",
         fecha: "28 de junio de 2026",
         lugar: "Estadio Nacional, Perú",
@@ -1750,6 +1798,7 @@ const misConciertos = [
     },
     {
         gira: "Maroon 5",
+        setlistUrl: "https://www.setlist.fm/setlist/maroon-5/2026/estadio-nacional-lima-peru-6b76523e.html",
         artista: "Maroon 5",
         fecha: "31 de agosto de 2026",
         lugar: "Estadio Nacional, Perú",
@@ -1780,6 +1829,7 @@ const misConciertos = [
     },
     {
         gira: "After Hours Til Dawn Tour",
+        setlistUrl: "https://www.setlist.fm/setlist/the-weeknd/2023/estadio-san-marcos-lima-peru-ba0e562.html",
         artista: "The Weeknd",
         fecha: "22 de octubre de 2023",
         lugar: "Estadio Nacional de San Marcos, Perú",
@@ -1832,6 +1882,7 @@ const misConciertos = [
     },
     {
         gira: "Si Ayer Fuera Hoy",
+        setlistUrl: "https://www.setlist.fm/setlist/morat/2023/multiespacio-costa-21-lima-peru-7ba1d280.html",
         artista: "Morat",
         fecha: "8 de noviembre de 2023",
         lugar: "Costa 21, Perú",
@@ -1909,7 +1960,16 @@ const mapPlaces = [
     { name: "Miami, Estados Unidos", coordinates: [25.7617, -80.1918], concertPlace: "Kaseya Center, Miami, Estados Unidos" },
     { name: "Lima, Perú", coordinates: [-12.0464, -77.0428], concertPlace: "Estadio Nacional, Perú" },
     { name: "Lima, Perú", coordinates: [-12.0464, -77.0428], concertPlace: "Costa 21, Perú" },
+    { name: "Lima, Perú", coordinates: [-12.0464, -77.0428], concertPlace: "Anfiteatro Parque de la Exposición, Perú" },
     { name: "Lima, Perú", coordinates: [-12.0464, -77.0428], concertPlace: "Estadio Nacional de San Marcos, Perú" }
+];
+
+const wishlistItems = [
+    { title: "Soy...", displayTitle: "Soy... Julio Iglesias", artist: "Julio Iglesias", format: "LP", cover: "soy", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXpbyfIzIrYf1qO9o-pKrPo2ggxOa0toV-bXdO8F35sA&s=10" },
+    { title: "En Carne Viva", artist: "Raphael", format: "LP", cover: "carne", image: "https://static.fnac-static.com/multimedia/Images/ES/NR/43/8f/7d/8228675/1507-1.jpg" },
+    { title: "Starry Night", artist: "Julio Iglesias", format: "LP", cover: "starry", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShB2dCzQ_eTIC4BTG2-vwz4Ce7RNJYq_CRJQklgcDszQ&s=10" },
+    { title: "Romantic Classic", artist: "Julio Iglesias", format: "CD", cover: "romantic", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRU9RiOpgwywDhshvUBSSJU6Nn22WNHcNOWs9vNbmk5Ug&s=10" },
+    { title: "Piano Man", artist: "Billy Joel", format: "Single", cover: "piano", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDOwbM2FERnaCd9BLCt-MyUPQKJ4KNnmoVvlJ9K53cA41DZqRpwTeqFSY&s=10" }
 ];
 
 const visitedCountries = [
@@ -1917,7 +1977,7 @@ const visitedCountries = [
     { name: "Belgium", continent: "Europa", capital: "Brussels", livedHere: false, flag: null, cities: ["Bruselas", "Brujas", "Gante"] },
     { name: "Brazil", continent: "América", capital: "Brasília", livedHere: false, flag: null, cities: ["Rio de Janeiro"] },
     { name: "Colombia", continent: "América", capital: "Bogotá", livedHere: false, flag: null, cities: ["San Andrés"] },
-    { name: "Costa Rica", continent: "América", capital: "San José", livedHere: true, flag: "🇨🇷", cities: ["San José"] },
+    { name: "Costa Rica", continent: "América", capital: "San José", livedHere: true, livedCity: "San José", flag: "🇨🇷", cities: ["Alajuela", "Cartago", "Heredia", "Guanacaste", "Puntarenas", "Limón"] },
     { name: "Czech Republic", continent: "Europa", capital: "Prague", livedHere: false, flag: null, cities: [] },
     { name: "France", continent: "Europa", capital: "Paris", livedHere: false, flag: null, cities: ["París", "Niza", "Lyon"] },
     { name: "Germany", continent: "Europa", capital: "Berlin", livedHere: false, flag: null, cities: ["Stuttgart", "Berlin"] },
@@ -1926,17 +1986,17 @@ const visitedCountries = [
     { name: "Italy", continent: "Europa", capital: "Rome", livedHere: false, flag: null, cities: ["Roma", "Florencia", "Pisa", "Génova", "Milán", "Turín", "Brescia", "Verona", "Venecia", "Bolonia", "Napolés", "Palermo"] },
     { name: "Jamaica", continent: "América", capital: "Kingston", livedHere: false, flag: null, cities: [] },
     { name: "Liechtenstein", continent: "Europa", capital: "Vaduz", livedHere: false, flag: null, cities: [] },
-    { name: "Mexico", continent: "América", capital: "Mexico City", livedHere: true, flag: "🇲🇽", cities: ["Monterrey"] },
+    { name: "Mexico", continent: "América", capital: "Mexico City", livedHere: true, livedCity: "Monterrey", flag: "🇲🇽", cities: ["Ciudad de México", "Sonora", "Tamaulipas", "Coahuila", "Chihuahua"] },
     { name: "Monaco", continent: "Europa", capital: "Monaco", livedHere: false, flag: null, cities: [] },
     { name: "Netherlands", continent: "Europa", capital: "Amsterdam", livedHere: false, flag: null, cities: [] },
     { name: "Panama", continent: "América", capital: "Panama City", livedHere: false, flag: null, cities: [] },
-    { name: "Peru", continent: "América", capital: "Lima", livedHere: true, flag: "🇵🇪", cities: ["Lima"] },
+    { name: "Peru", continent: "América", capital: "Lima", livedHere: true, livedCity: "Lima", flag: "🇵🇪", cities: ["La Libertad", "Cusco", "Arequipa"] },
     { name: "Romania", continent: "Europa", capital: "Bucharest", livedHere: false, flag: null, cities: ["Bucarest", "Brann", "Sinaia"] },
     { name: "Spain", continent: "Europa", capital: "Madrid", livedHere: false, flag: null, cities: [] },
     { name: "Switzerland", continent: "Europa", capital: "Bern", livedHere: false, flag: null, cities: ["Berna", "Ginebra", "Zúrich"] },
     { name: "Turkey", continent: "Asia", capital: "Ankara", livedHere: false, flag: null, cities: ["Estanbul"] },
     { name: "United Kingdom", continent: "Europa", capital: "London", livedHere: false, flag: null, cities: ["Londres", "Mánchester", "Liverpool"] },
-    { name: "United States", continent: "América", capital: "Washington D.C.", livedHere: false, flag: null, cities: [] },
+    { name: "United States", continent: "América", capital: "Washington D.C.", livedHere: false, flag: null, cities: ["Florida"] },
     { name: "Vatican City", continent: "Europa", capital: "Vatican City", livedHere: false, flag: null, cities: [] }
 ];
 
@@ -2049,8 +2109,10 @@ function countryName(feature) {
 
 function showPlaceDetails(country) {
     placeDetails.hidden = false;
-    const placesLabel = country.livedHere ? "Ciudad en la que viví" : "Lugares que visité";
-    const places = country.cities.length ? country.cities.join(", ") : country.capital;
+    const placesLabel = "Lugares que visité";
+    const places = country.cities.length > 1
+        ? `<ul class="place-details__city-list">${country.cities.map((city) => `<li>${city}</li>`).join("")}</ul>`
+        : `<strong>${country.cities[0] || (country.livedCity ? "Sin otras ciudades registradas" : "Sin lugares registrados")}</strong>`;
     const travelLink = travelLinksByCountry[country.name] || "#viajes";
     placeDetails.innerHTML = `
         <div class="place-details__heading">
@@ -2061,7 +2123,10 @@ function showPlaceDetails(country) {
             ${country.livedHere ? '<span class="lived-badge">He vivido aquí</span>' : ""}
         </div>
         <div class="place-details__travel-row">
-            <div class="place-details__capital"><span>${placesLabel}</span><strong>${places}</strong></div>
+            <div class="place-details__locations">
+                ${country.livedCity ? `<div class="place-details__capital"><span>Ciudad en la que viví</span><strong>${country.livedCity}</strong></div>` : ""}
+                <div class="place-details__capital"><span>${placesLabel}</span>${places}</div>
+            </div>
             <a class="place-details__travel-link" href="${travelLink}" ${travelLink === "#viajes" ? 'data-view="travel"' : ""} aria-label="${travelLinksByCountry[country.name] ? "Ver fotos del viaje" : "Abrir la pestaña de viajes"}" title="${travelLinksByCountry[country.name] ? "Ver fotos del viaje" : "Abrir Viajes"}">&#128247;</a>
         </div>
     `;
@@ -2073,6 +2138,8 @@ function showPlaceDetails(country) {
 
 function renderPlacesStats() {
     const totalVisited = visitedCountries.length;
+    const totalVisitedCities = visitedCountries.reduce((total, country) => total + country.cities.length + (country.livedCity ? 1 : 0), 0);
+    const countriesWithVisitedCities = visitedCountries.filter((country) => country.cities.length > 0 || country.livedCity).length;
     const percentage = ((totalVisited / 195) * 100).toFixed(1);
     const continentCounts = ["América", "Europa", "Oceanía", "Asia", "África"].map((continent) => ({
         continent,
@@ -2115,7 +2182,7 @@ function renderPlacesStats() {
         <div class="places-stat-grid">
             <article class="places-stat-card"><span>Continente más explorado</span><strong>${mostExplored.continent}</strong><em>${mostExplored.count} países</em></article>
             <article class="places-stat-card"><span>Países donde he vivido</span><strong>${livedCountries.length}</strong><em>${livedCountries.map((country) => `${country.flag} ${country.name}`).join(" · ")}</em></article>
-            <article class="places-stat-card"><span>Ciudades visitadas</span><strong>${visitedCountries.length}</strong><em>de ${visitedCountries.length} países.</em></article>
+            <article class="places-stat-card"><span>Ciudades visitadas</span><strong>${totalVisitedCities}</strong><em>en ${countriesWithVisitedCities} países</em></article>
         </div>
     `;
 }
@@ -2420,7 +2487,11 @@ function renderConcerts() {
     `).join("");
     concertSongsCount.textContent = `${visibleSongs.length} ${visibleSongs.length === 1 ? "canción" : "canciones"}`;
 
-    concertShelf.innerHTML = visibleConcerts.map((concert, index) => `
+    concertShelf.innerHTML = visibleConcerts.map((concert, index) => {
+        const concertInfoUrl = concert.setlistUrl || spotifySearchUrl(concert.artista, concert.artista);
+        const concertInfoLabel = concert.setlistUrl ? `Ver setlist de ${concert.artista}` : `Buscar a ${concert.artista} en Spotify`;
+        const concertInfoTitle = concert.setlistUrl ? "Ver setlist" : "Buscar en Spotify";
+        return `
         <article class="concert-card album-card" tabindex="0" style="animation-delay: ${index * 60}ms">
             <div class="concert-art album-art">
                 <img src="${concert.imagen}" alt="Concierto de ${concert.artista}" loading="lazy" onerror="this.src='https://via.placeholder.com/900x900?text=Imagen+no+disponible'">
@@ -2440,10 +2511,11 @@ function renderConcerts() {
                         <p class="album-location">${concert.fecha} · ${concert.lugar}</p>
                     </div>
                 </div>
-                <div class="album-meta"><strong>LIVE</strong>${concert.canciones.length} temas<a class="spotify-link" href="${spotifySearchUrl(concert.artista, concert.artista)}" target="_blank" rel="noopener" aria-label="Buscar a ${concert.artista} en Spotify" title="Buscar en Spotify">♫</a></div>
+                <div class="album-meta"><strong>LIVE</strong>${concert.canciones.length} temas<a class="spotify-link" href="${concertInfoUrl}" target="_blank" rel="noopener" aria-label="${concertInfoLabel}" title="${concertInfoTitle}">♫</a></div>
             </div>
         </article>
-    `).join("");
+        `;
+    }).join("");
 
     const formattedCount = String(visibleConcerts.length).padStart(2, "0");
     concertCount.textContent = formattedCount;
@@ -2453,22 +2525,51 @@ function renderConcerts() {
 
 let activeView = "albums";
 
+function renderWishlist() {
+    wishlistGrid.innerHTML = wishlistItems.map((item, index) => {
+        const displayTitle = item.displayTitle || item.title;
+        const searchUrl = new URL("https://www.discogs.com/search/");
+        searchUrl.searchParams.set("q", `${item.title} ${item.artist} ${item.format}`);
+        searchUrl.searchParams.set("type", "all");
+        return `
+            <article class="wishlist-item" style="animation-delay: ${index * 60}ms">
+                <div class="wishlist-sleeve wishlist-sleeve--${item.cover}" aria-hidden="true">
+                    <img class="wishlist-sleeve-image" src="${item.image}" alt="" loading="eager" onerror="this.hidden=true">
+                </div>
+                <div class="wishlist-item-info">
+                    <div class="wishlist-item-meta"><span class="wishlist-format">${item.format}</span><span>0${index + 1}</span></div>
+                    <h3>${displayTitle}</h3>
+                    <p>${item.artist}</p>
+                    <a href="${searchUrl.href}" target="_blank" rel="noopener" aria-label="Buscar ${displayTitle} de ${item.artist} en Discogs">Buscar edición <span aria-hidden="true">↗</span></a>
+                </div>
+            </article>
+        `;
+    }).join("");
+    const count = String(wishlistItems.length).padStart(2, "0");
+    wishlistCount.textContent = count;
+    wishlistTabCount.textContent = count;
+    footerCount.textContent = `${wishlistItems.length} discos en la canasta`;
+}
+
 function setActiveView(view) {
     activeView = view;
-    const viewHash = view === "map" ? "#map" : view === "places" ? "#lugares" : view === "travel" ? "#viajes" : "#inicio";
+    const viewHash = view === "map" ? "#map" : view === "places" ? "#lugares" : view === "travel" ? "#viajes" : view === "wishlist" ? "#canasta" : "#inicio";
     if (window.location.hash !== viewHash) window.history.replaceState(null, "", viewHash);
     searchInput.value = "";
     const showingAlbums = view === "albums";
     const showingConcerts = view === "concerts";
     const showingTravel = view === "travel";
     const showingPlaces = view === "places";
+    const showingWishlist = view === "wishlist";
     heroTitle.innerHTML = showingAlbums
         ? '<span class="palabra-negra">Colección</span><span class="palabra-negra">de</span><span class="palabra-acento">discos.</span>'
         : showingConcerts
             ? '<span class="palabra-negra">Colección</span><span class="palabra-negra">de</span><span class="palabra-acento">conciertos.</span>'
             : showingTravel
                 ? '<span class="palabra-negra">Mi</span><span class="palabra-negra">colección</span><span class="palabra-acento">de viajes.</span>'
-                : showingPlaces
+                : showingWishlist
+                    ? '<span class="palabra-negra">Discos</span><span class="palabra-negra">en la</span><span class="palabra-acento">canasta.</span>'
+                    : showingPlaces
                     ? '<span class="palabra-negra">Lugares</span><span class="palabra-negra">que he</span><span class="palabra-acento">visitado.</span>'
                     : '<span class="palabra-negra">Colección</span><span class="palabra-negra">en</span><span class="palabra-acento">el mapa.</span>';
     heroDescription.textContent = showingAlbums
@@ -2477,6 +2578,8 @@ function setActiveView(view) {
             ? "Una selección de todos los conciertos en los que he estado."
             : showingTravel
                 ? "Una colección de las fotos que he tomado."
+                    : showingWishlist
+                    ? "Discos que quiero encontrar para mi colección."
                 : showingPlaces
                     ? "Una vista de los países que he visitado."
                     : "Una vista geográfica de mis viajes y conciertos.";
@@ -2485,8 +2588,9 @@ function setActiveView(view) {
     travelView.hidden = !showingTravel;
     mapView.hidden = view !== "map";
     placesView.hidden = !showingPlaces;
+    wishlistView.hidden = !showingWishlist;
     shelf.hidden = !showingAlbums;
-    searchContainer.hidden = view === "map" || view === "travel" || showingPlaces;
+    searchContainer.hidden = view === "map" || view === "travel" || showingPlaces || showingWishlist;
     heroDescription.hidden = view === "map" || showingPlaces;
     document.body.classList.toggle("map-active", view === "map");
     document.body.classList.toggle("travel-active", showingTravel);
@@ -2509,7 +2613,8 @@ function setActiveView(view) {
     else if (showingConcerts) renderConcerts();
     else if (showingTravel) renderTravels();
     else if (view === "map") renderMap();
-    else renderPlaces();
+    else if (showingPlaces) renderPlaces();
+    else if (showingWishlist) renderWishlist();
 }
 
 searchInput.addEventListener("input", () => {
@@ -2634,4 +2739,4 @@ document.addEventListener("keydown", (event) => {
     }
 });
 
-setActiveView(window.location.hash === "#map" ? "map" : window.location.hash === "#lugares" ? "places" : window.location.hash === "#viajes" ? "travel" : "albums");
+setActiveView(window.location.hash === "#map" ? "map" : window.location.hash === "#lugares" ? "places" : window.location.hash === "#viajes" ? "travel" : window.location.hash === "#canasta" ? "wishlist" : "albums");
