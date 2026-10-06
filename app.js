@@ -1969,6 +1969,7 @@ const wishlistItems = [
     { title: "En Carne Viva", artist: "Raphael", format: "LP", cover: "carne", image: "https://static.fnac-static.com/multimedia/Images/ES/NR/43/8f/7d/8228675/1507-1.jpg" },
     { title: "Starry Night", artist: "Julio Iglesias", format: "LP", cover: "starry", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShB2dCzQ_eTIC4BTG2-vwz4Ce7RNJYq_CRJQklgcDszQ&s=10" },
     { title: "Romantic Classic", artist: "Julio Iglesias", format: "CD", cover: "romantic", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRU9RiOpgwywDhshvUBSSJU6Nn22WNHcNOWs9vNbmk5Ug&s=10" },
+    { title: "My Way", artist: "Frank Sinatra", format: "Single", cover: "myway", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaBP1707_UUykoSZrkKK7CT53vUEBmrpxn2_7kIQ4NOg&s=10", link: "https://www.discogs.com/release/2532539-Frank-Sinatra-My-Way" },
     { title: "Piano Man", artist: "Billy Joel", format: "Single", cover: "piano", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDOwbM2FERnaCd9BLCt-MyUPQKJ4KNnmoVvlJ9K53cA41DZqRpwTeqFSY&s=10" }
 ];
 
@@ -2531,6 +2532,7 @@ function renderWishlist() {
         const searchUrl = new URL("https://www.discogs.com/search/");
         searchUrl.searchParams.set("q", `${item.title} ${item.artist} ${item.format}`);
         searchUrl.searchParams.set("type", "all");
+        const itemLink = item.link || searchUrl.href;
         return `
             <article class="wishlist-item" style="animation-delay: ${index * 60}ms">
                 <div class="wishlist-sleeve wishlist-sleeve--${item.cover}" aria-hidden="true">
@@ -2540,7 +2542,7 @@ function renderWishlist() {
                     <div class="wishlist-item-meta"><span class="wishlist-format">${item.format}</span><span>0${index + 1}</span></div>
                     <h3>${displayTitle}</h3>
                     <p>${item.artist}</p>
-                    <a href="${searchUrl.href}" target="_blank" rel="noopener" aria-label="Buscar ${displayTitle} de ${item.artist} en Discogs">Buscar edición <span aria-hidden="true">↗</span></a>
+                    <a href="${itemLink}" target="_blank" rel="noopener" aria-label="Buscar ${displayTitle} de ${item.artist} en Discogs">Buscar edición <span aria-hidden="true">↗</span></a>
                 </div>
             </article>
         `;
