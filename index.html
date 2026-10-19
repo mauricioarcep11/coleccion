@@ -62,9 +62,9 @@
                     <button class="view-tab" type="button" data-view="travel" aria-selected="false">Viajes</button>
                     <button class="view-tab" type="button" data-view="map" aria-selected="false">Mapa</button>
                     <button class="view-tab" type="button" data-view="places" aria-selected="false">Lugares</button>
-                    <button class="view-tab wishlist-tab" type="button" data-view="wishlist" aria-selected="false" aria-label="Abrir wishlist, 5 discos">
+                    <button class="view-tab wishlist-tab" type="button" data-view="wishlist" aria-selected="false" aria-label="Abrir canasta">
                         <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 7h14l-1.5 10h-11L3 7Z M7 7l3-4 3 4 M6 10v4 M10 10v4 M14 10v4" /></svg>
-                        <span class="wishlist-tab-count" id="wishlistTabCount">05</span>
+                        <span class="wishlist-tab-count" id="wishlistTabCount">00</span>
                     </button>
                 </nav>
                 <button class="random-button albums-only-control" id="randomBtn" type="button" aria-label="Encontrar una canción al azar">
@@ -76,7 +76,7 @@
             <div class="hero-section">
                 <div class="sub-linea">
                     <span class="guion"></span>
-                    <span class="texto-pequeno">actualizado: 04/10/2026</span>
+                    <span class="texto-pequeno">actualizado: 18/10/2026</span>
                 </div>
                 <h1 class="titulo-principal" id="heroTitle">
                     <span class="palabra-negra">Colección</span>
@@ -108,8 +108,8 @@
                 <section class="collection-heading">
                     <div>
                         <div class="section-labels">
-                            <p class="section-label">La colección <span id="resultCount">15</span></p>
-                            <p class="section-label">CANCIONES <span id="albumTotalSongs">213</span></p>
+                            <p class="section-label">La colección <span id="resultCount">92</span></p>
+                            <p class="section-label">CANCIONES <span id="albumTotalSongs">818</span></p>
                         </div>
                         <h2 class="album-heading">
                             <span class="album-category-picker">
@@ -219,7 +219,7 @@
                 <section class="collection-heading wishlist-heading">
                     <div>
                         <div class="section-labels">
-                            <p class="section-label">En busca <span id="wishlistCount">05</span></p>
+                            <p class="section-label">En busca <span id="wishlistCount">00</span></p>
                             <p class="section-label">PARA SUMAR A LA COLECCIÓN</p>
                         </div>
                         <h2>Wishlist</h2>
@@ -227,7 +227,7 @@
                 </section>
                 <div class="wishlist-rail" aria-hidden="true">
                     <span>SELECCIÓN ABIERTA</span>
-                    <span>03 LP <i></i> 01 CD <i></i> 01 SINGLE</span>
+                    <span id="wishlistFormatSummary">00</span>
                 </div>
                 <div id="wishlistGrid" class="wishlist-grid" aria-live="polite"></div>
             </section>
@@ -236,7 +236,7 @@
         <footer class="site-footer">
             <span>Colección de Mauricio Arce.</span>
             <span class="footer-rule"></span>
-            <span id="footerCount">15 discos en el estante</span>
+            <span id="footerCount">92 discos en el estante</span>
         </footer>
     </div>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>

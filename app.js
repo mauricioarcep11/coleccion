@@ -1,3 +1,30 @@
+const viennaArtworkImages = [
+    "IMAGES/Single/Elvis-MAURICIO%20ARCE.png"
+];
+const previousViennaArtworkKey = "previousViennaArtwork";
+
+function getRandomViennaArtwork() {
+    let previousArtwork = null;
+    try {
+        previousArtwork = sessionStorage.getItem(previousViennaArtworkKey);
+    } catch {
+        // La portada sigue disponible si el navegador bloquea el almacenamiento de sesión.
+    }
+
+    const availableArtworks = viennaArtworkImages.length > 1
+        ? viennaArtworkImages.filter((artwork) => artwork !== previousArtwork)
+        : viennaArtworkImages;
+    const artwork = availableArtworks[Math.floor(Math.random() * availableArtworks.length)];
+
+    try {
+        sessionStorage.setItem(previousViennaArtworkKey, artwork);
+    } catch {
+        // La selección aleatoria funciona aunque no se pueda guardar la portada anterior.
+    }
+
+    return artwork;
+}
+
 const miColeccion = [
     {
         id: 81,
@@ -262,7 +289,7 @@ const miColeccion = [
         album: "Vienna",
         artista: "Mauricio Arce",
         lugarCompra: "Viena, Austria",
-        imagen: "https://via.placeholder.com/900x900?text=Portada+pendiente",
+        imagen: getRandomViennaArtwork(),
         categoria: "singles",
         canciones: ["Vienna"]
     },
@@ -676,7 +703,7 @@ const miColeccion = [
         id: 35,
         album: "I'm Glad You're Here With Me Tonight",
         artista: "Neil Diamond",
-        lugarCompra: "Viena, Suiza",
+        lugarCompra: "Viena, Austria",
         imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUZqhpNuf_FwvcQJ3cDR9UaCVsv4Hl9D-oVtQumB4yhA&s=10",
         canciones: [
             "God Only Knows",
@@ -696,7 +723,7 @@ const miColeccion = [
         id: 36,
         album: "20 Grössten Hits",
         artista: "The Beach Boys",
-        lugarCompra: "Viena, Suiza",
+        lugarCompra: "Viena, Austria",
         imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfa9jyFEiiM7AKzN4ZJU3BQApsVPOBjTBAvDGsgNFUDg&s=10",
         canciones: [
             "Do It Again",
@@ -1310,7 +1337,7 @@ const miColeccion = [
         id: 6,
         album: "The Stranger",
         artista: "Billy Joel",
-        lugarCompra: "Viena, Suiza",
+        lugarCompra: "Viena, Austria",
         imagen: "https://upload.wikimedia.org/wikipedia/en/f/f5/Thestranger1977.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
         canciones: [
             "Movin' Out (Anthony's Song)",
@@ -1354,7 +1381,7 @@ const miColeccion = [
         id: 5,
         album: "CHOBA B CCCP",
         artista: "Paul McCartney",
-        lugarCompra: "Viena, Suiza",
+        lugarCompra: "Viena, Austria",
         imagen: "https://upload.wikimedia.org/wikipedia/en/8/89/ChobaCover.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
         canciones: [
             "Kansas City",
@@ -1374,7 +1401,7 @@ const miColeccion = [
         id: 4,
         album: "ABBA GREATEST HITS VOL.2",
         artista: "ABBA",
-        lugarCompra: "Viena, Suiza",
+        lugarCompra: "Viena, Austria",
         imagen: "https://i.discogs.com/of1Ay8sOFLqr6XsTZdKwu-Bga7kM24ccRCvnArJAF8s/rs:fit/g:sm/q:90/h:594/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTQ3MzQx/NDItMTU0MDYzMTkz/My00ODg1LmpwZWc.jpeg",
         canciones: [
             "Gimme! Gimme! Gimme! (A Man After Midnight)",
@@ -1390,7 +1417,211 @@ const miColeccion = [
             "Chiquitita"
         ]
     },
+    {
+        id: 84,
+        album: "De niña a mujer",
+        artista: "Julio Iglesias",
+        lugarCompra: "Málaga, España",
+        imagen: "https://upload.wikimedia.org/wikipedia/en/1/13/Julio_Iglesias_De_Ni%C3%B1a_A_Mujer_CD_Album_Jacket.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail_unscaled",
+        categoria: "vinilos",
+        canciones: [
+            "De niña a mujer",
+            "Volver a empezar",
+            "Después de ti",
+            "Que nadie sepa mi sufrir",
+            "Isla en el Sol",
+            "O me quieres o me dejas",
+            "Y pensar...",
+            "Si, Madame",
+            "Grande, grande, grande",
+            "Como tú"
+        ]
+    },
+    {
+        id: 85,
+        album: "Libra",
+        artista: "Julio Iglesias",
+        lugarCompra: "Málaga, España",
+        imagen: "https://upload.wikimedia.org/wikipedia/en/0/00/Libra_%28Julio_Iglesias_album%29_cover.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail_unscaled",
+        categoria: "vinilos",
+        canciones: [
+            "Ni Te Tengo, Ni Te Olvido",
+            "Tu Y Yo",
+            "I've Got You Under My Skin",
+            "Dire",
+            "Abril en Portugal (Coimbra)",
+            "Felicidades",
+            "Esta Cobardia",
+            "Coracao Apaixonado",
+            "Ni Tu Gato Gris, Ni Tu Perro Fiel",
+            "Todo y Nada"
+        ]
+    },
+    {
+        id: 86,
+        album: "Soy",
+        artista: "Julio Iglesias",
+        lugarCompra: "Málaga, España",
+        imagen: "https://upload.wikimedia.org/wikipedia/en/4/49/Soy_%28Julio_Iglesias_album%29_cover.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        categoria: "vinilos",
+        canciones: [
+            "Vivencias",
+            "En una ciudad cualquiera",
+            "Soy",
+            "Minueto",
+            "Mi amor es más joven que yo",
+            "Dieciséis años",
+            "Niña",
+            "Una leyenda",
+            "Así nacemos",
+            "Vete ya"
+        ]
+    },
+    {
+        id: 87,
+        album: "That's Life (Es la vida)",
+        artista: "Frank Sinatra",
+        lugarCompra: "Málaga, España",
+        imagen: "https://m.media-amazon.com/images/I/41xvOCaHs+L._UF350,350_QL80_.jpg",
+        categoria: "vinilos",
+        canciones: [
+            "That's Life",
+            "Les Parapluies de Cherbourg",
+            "Somewhere My Love",
+            "Downtown",
+            "Sand and Sea",
+            "Et maintenant",
+            "Winchester Cathedral",
+            "Give Her Love",
+            "Summer Wind",
+            "The Impossible Dream",
+            "All or Nothing at All",
+            "You're Gonna Hear from Me"
+        ]
+    },
+    {
+        id: 88,
+        album: "Un hombre solo",
+        artista: "Julio Iglesias",
+        lugarCompra: "Málaga, España",
+        imagen: "https://upload.wikimedia.org/wikipedia/en/3/33/Un_Hombre_Solo.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail_unscaled",
+        categoria: "vinilos",
+        canciones: [
+            "Lo Mejor De Tu Vida",
+            "Todo El Amor Que Te Hace Falta",
+            "Intentando Otra Vez Enamorarte",
+            "Procura Hablarle Tu",
+            "Que No Se Rompa La Noche",
+            "Un Hombre Solo",
+            "Te Voy A Dejar De Querer",
+            "Evadiéndome",
+            "Alguien",
+            "El Mar Que Llevo Dentro"
+        ]
+    },
+    {
+        id: 89,
+        album: "Zenyattà Mondatta",
+        artista: "The Police",
+        lugarCompra: "Málaga, España",
+        imagen: "https://upload.wikimedia.org/wikipedia/en/1/15/Police-album-zenyattamondatta.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail_unscaled",
+        categoria: "vinilos",
+        canciones: [
+            "Don't Stand So Close To Me",
+            "Driven To Tears",
+            "When The World Is Running Down, You Make The Best Of What's Still Around",
+            "Canary In A Coalmine",
+            "Voices Inside My Head",
+            "Bombs Away",
+            "De Do Do Do, De Da Da Da",
+            "Behind My Camel",
+            "Man In A Suitcase",
+            "Shadows In The Rain",
+            "The Other Way Of Stopping"
+        ]
+    },
+    {
+        id: 90,
+        album: "Glass House",
+        artista: "Billy Joel",
+        lugarCompra: "Lima, Perú",
+        imagen: "https://upload.wikimedia.org/wikipedia/en/8/81/Billy_Joel_-_Glass_Houses.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail_unscaled",
+        categoria: "vinilos",
+        canciones: [
+            "You May Be Right",
+            "Sometimes a Fantasy",
+            "Don't Ask Me Why",
+            "It's Still Rock and Roll to Me",
+            "All for Leyna",
+            "I Don't Want to Be Alone",
+            "Sleeping with the Television On",
+            "C'etait Toi (You Were the One)",
+            "Close to the Borderline",
+            "Through the Long Night"
+        ]
+    },
+    {
+        id: 91,
+        album: "Felicidades/Ni tu Gato Gris, Ni tu Perro Fiel",
+        artista: "Julio Iglesias",
+        lugarCompra: "Málaga, España",
+        imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAoIv_WpngxQMIqpKVquMcVIXlwb2IxHZwpB83xUWsEw&s",
+        categoria: "singles",
+        canciones: ["Felicidades", "Ni tu Gato Gris, Ni tu Perro Fiel"]
+    },
+    {
+        id: 92,
+        album: "Río Rebelde /A veces Llegan Cartas",
+        artista: "Julio Iglesias",
+        lugarCompra: "Málaga, España",
+        imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT94MV12DRH6NAqGmpMb_DCNCnWU877TVDLO01N3IrLbg&s=10",
+        categoria: "singles",
+        canciones: ["Río Rebelde", "A veces Llegan Cartas"]
+    },
+    {
+        id: 93,
+        album: "Starry Night",
+        artista: "Julio Iglesias",
+        lugarCompra: "Lima, Perú",
+        imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3JQVpPzrta_3AkFP70lsZomYx3Jl8HmzeqEoXFQaeZA&s=10",
+        categoria: "cds",
+        canciones: [
+            "Can't Help Falling in Love",
+            "And I Love Her",
+            "Mona Lisa",
+            "Cryin' Time",
+            "Yesterday When I Was Young",
+            "When I Need You",
+            "99 Miles from L.A.",
+            "Vincent (Starry Starry Night)",
+            "If You Go Away",
+            "Love Has Been a Friend to Me"
+        ]
+    },
+    {
+        id: 94,
+        album: "A mis 33 años",
+        artista: "Julio Iglesias",
+        lugarCompra: "Lima, Perú",
+        imagen: "https://upload.wikimedia.org/wikipedia/en/f/f8/Julio_Iglesias_A_mis_33_anos.jpg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original",
+        categoria: "cds",
+        canciones: [
+            "Soy un Truhán, Soy un Señor",
+            "Sono Io",
+            "Si me dejas no vale",
+            "Por un poco de tu amor",
+            "Un Gorrión Sentimental",
+            "Seguiré mi Camino",
+            "33 Años",
+            "Cada día más",
+            "¿Dónde estarás?",
+            "Goodbye Amore Mio"
+        ]
+    },
 ];
+
+const featuredAlbumOrder = new Map([94, 93, 91, 92, 90, 89, 88, 87, 86, 85, 84].map((id, index) => [id, index]));
+miColeccion.sort((a, b) => (featuredAlbumOrder.get(a.id) ?? Infinity) - (featuredAlbumOrder.get(b.id) ?? Infinity));
 
 const shelf = document.querySelector("#estante");
 const contenedorColumnas = document.getElementById("columnasActivas");
@@ -1420,6 +1651,8 @@ const wishlistView = document.querySelector("#wishlistView");
 const wishlistGrid = document.querySelector("#wishlistGrid");
 const wishlistCount = document.querySelector("#wishlistCount");
 const wishlistTabCount = document.querySelector("#wishlistTabCount");
+const wishlistTab = document.querySelector(".wishlist-tab");
+const wishlistFormatSummary = document.querySelector("#wishlistFormatSummary");
 const placesMap = document.querySelector("#placesMap");
 const placesVisitedCount = document.querySelector("#placesVisitedCount");
 const placeDetails = document.querySelector("#placeDetails");
@@ -1509,25 +1742,43 @@ function updateAlbumCategoryControls() {
     albumCategoryTrigger.textContent = albumCategoryNames[activeAlbumCategory] || "Discos";
 }
 
-const posicionesIniciales = {
-    1: { x: 2.10809 }, 2: { x: 2.86385 }, 3: { x: 3.65247 }, 4: { x: 4.17822 }, 5: { x: 4.73682 }, 6: { x: 5.29543 }, 7: { x: 5.78831 }, 8: { x: 6.31406 }, 9: { x: 6.51121 }, 10: { x: 6.87266 }, 11: { x: 7.16839 }, 12: { x: 7.33269 },
-    13: { x: 15.2189 }, 14: { x: 16.1061 }, 15: { x: 16.4675 }, 16: { x: 16.9604 }, 17: { x: 17.3876 }, 18: { x: 18.1105 }, 19: { x: 18.5705 }, 20: { x: 18.9648 }, 21: { x: 19.3262 }, 22: { x: 19.8428 }, 23: { x: 20.1714 }, 24: { x: 20.2371 },
-    25: { x: 36.8309 }, 26: { x: 35.9766 }, 27: { x: 35.2537 }, 28: { x: 34.5637 }, 29: { x: 34.1365 }, 30: { x: 33.4136 }, 31: { x: 33.315 }, 32: { x: 32.6552 }, 33: { x: 32.1952 }, 34: { x: 31.9323 }, 35: { x: 31.7351 }, 36: { x: 31.6694 },
-    37: { x: 39.9171 }, 38: { x: 40.8639 }, 39: { x: 41.521 }, 40: { x: 41.9153 }, 41: { x: 42.1782 }, 42: { x: 42.934 }, 43: { x: 43.4926 }, 44: { x: 44.084 }, 45: { x: 44.2483 }, 46: { x: 44.7025 },
-    47: { x: 58.4047 }, 48: { x: 57.7804 }, 49: { x: 56.9918 }, 50: { x: 56.696 }, 51: { x: 61.7235 }, 52: { x: 62.5778 }, 53: { x: 63.3007 }, 54: { x: 63.6622 }, 55: { x: 64.1743 }, 56: { x: 64.8644 },
-    57: { x: 82.1685 }, 58: { x: 83.1398 }, 59: { x: 83.7873 }, 60: { x: 93.455 }, 61: { x: 81.9182 }, 62: { x: 81.491 }, 63: { x: 81.4253 }, 64: { x: 96.8815 }, 65: { x: 80.801 }, 66: { x: 94.0037 }, 67: { x: 94.6872 }, 68: { x: 95.3347 }, 69: { x: 95.8383 },
-    70: { x: 11.0721 }, 71: { x: 12.2504 }, 72: { x: 11.7704 }, 73: { x: 12.7305 },
-    74: { x: 20.5821 }, 75: { x: 21.2368 }, 76: { x: 21.8041 }, 77: { x: 22.2405 },
-    78: { x: 66.2864 }, 79: { x: 66.0245 }, 80: { x: 65.4572 }, 81: { x: 45.0312 },
-    82: { x: 67 }, 83: { x: 71 }
+const shelfPositionStorageKey = "posicionesEstantePorDisco";
+const canArrangeShelf = window.location.protocol === "file:";
+const posicionesEstante = {
+    3: { x: 94.641 }, 4: { x: 95.6043 }, 5: { x: 95.254 }, 6: { x: 94.3783 },
+    7: { x: 89.212 }, 8: { x: 88.6866 }, 9: { x: 88.1612 }, 10: { x: 87.7233 },
+    11: { x: 87.1979 }, 12: { x: 86.7601 }, 13: { x: 86.1472 }, 14: { x: 78.7041 },
+    15: { x: 79.2295 }, 16: { x: 79.5797 }, 17: { x: 79.7549 }, 18: { x: 80.1051 },
+    19: { x: 80.8932 }, 20: { x: 80.4348 }, 21: { x: 67.0578 }, 22: { x: 66.62 },
+    23: { x: 66.1822 }, 24: { x: 65.5692 }, 25: { x: 64.8687 }, 26: { x: 63.9055 },
+    27: { x: 63.4677 }, 28: { x: 62.7671 }, 29: { x: 62.1542 }, 30: { x: 61.4536 },
+    31: { x: 53.2225 }, 32: { x: 56.3748 }, 33: { x: 55.4992 }, 34: { x: 55.2365 },
+    35: { x: 54.6235 }, 36: { x: 54.0981 }, 37: { x: 53.8354 }, 38: { x: 55.6743 },
+    39: { x: 57.1629 }, 40: { x: 57.6883 }, 41: { x: 44.7286 }, 42: { x: 44.4659 },
+    43: { x: 43.8529 }, 44: { x: 43.1524 }, 45: { x: 8.82667 }, 46: { x: 14.8687 },
+    47: { x: 15.219 }, 48: { x: 15.6568 }, 49: { x: 15.8319 }, 50: { x: 16.1822 },
+    51: { x: 16.7952 }, 52: { x: 17.5832 }, 53: { x: 18.1962 }, 54: { x: 19.0719 },
+    55: { x: 37.3731 }, 56: { x: 35.0088 }, 57: { x: 35.972 }, 58: { x: 35.3591 },
+    59: { x: 36.6726 }, 60: { x: 36.1472 }, 61: { x: 36.9565 }, 62: { x: 38.0435 },
+    63: { x: 33.5202 }, 64: { x: 34.0456 }, 65: { x: 34.4834 }, 66: { x: 32.9948 },
+    67: { x: 31.5062 }, 68: { x: 32.1191 }, 69: { x: 31.944 }, 70: { x: 19.86 },
+    71: { x: 20.0351 }, 72: { x: 20.5605 }, 73: { x: 40.7006 }, 74: { x: 41.3135 },
+    75: { x: 41.8389 }, 76: { x: 42.4519 }, 77: { x: 11.1909 }, 78: { x: 10.3153 },
+    79: { x: 9.87746 }, 80: { x: 9.43963 }, 81: { x: 5.23648 }, 82: { x: 13.0435 },
+    83: { x: 11.979 }, 84: { x: 5.76188 }, 85: { x: 5.06135 }, 86: { x: 4.71109 },
+    87: { x: 4.36083 }, 88: { x: 4.53596 }, 89: { x: 3.74787 }, 90: { x: 3.3976 },
+    91: { x: 2.52195 }, 92: { x: 2.87221 }, 93: { x: 1.90899 }, 94: { x: 1.55872 }
 };
-let posicionesEstante = structuredClone(posicionesIniciales);
 let columnaArrastrada = null;
 
 try {
-    const posicionesGuardadas = JSON.parse(localStorage.getItem("posicionesEstante") || localStorage.getItem("posicionesEstanteRespaldo"));
-    if (posicionesGuardadas && typeof posicionesGuardadas === "object") {
-        posicionesEstante = { ...posicionesEstante, ...posicionesGuardadas };
+    const posicionesGuardadas = JSON.parse(localStorage.getItem(shelfPositionStorageKey) || "{}");
+    if (posicionesGuardadas && typeof posicionesGuardadas === "object" && !Array.isArray(posicionesGuardadas)) {
+        Object.entries(posicionesGuardadas).forEach(([albumId, posicion]) => {
+            if (Number.isFinite(posicion?.x) && posicion.x >= 0 && posicion.x <= 100) {
+                posicionesEstante[albumId] = { x: posicion.x };
+            }
+        });
     }
 } catch {
     // El estante funciona igual si el navegador bloquea el almacenamiento local.
@@ -1955,7 +2206,7 @@ const mapPlaces = [
     { name: "San José, Costa Rica", coordinates: [9.9281, -84.0907], albumPlace: "San José, Costa Rica" },
     { name: "Atenas, Grecia", coordinates: [37.9838, 23.7275], albumPlace: "Atenas, Grecia" },
     { name: "Viena, Austria", coordinates: [48.2082, 16.3738], albumPlace: "Viena, Austria" },
-    { name: "Viena, Suiza", coordinates: [48.2082, 16.3738], albumPlace: "Viena, Suiza" },
+    { name: "Málaga, España", coordinates: [36.7213, -4.4214], albumPlace: "Málaga, España" },
     { name: "Lima, Perú", coordinates: [-12.0464, -77.0428], concertPlace: "Arena 1 Park, Perú" },
     { name: "Miami, Estados Unidos", coordinates: [25.7617, -80.1918], concertPlace: "Kaseya Center, Miami, Estados Unidos" },
     { name: "Lima, Perú", coordinates: [-12.0464, -77.0428], concertPlace: "Estadio Nacional, Perú" },
@@ -2253,16 +2504,54 @@ async function renderPlaces() {
     window.setTimeout(() => placesMapInstance.invalidateSize(), 0);
 }
 
+const equivalentSongGroups = [
+    ["A veces tú, a veces yo", "A Veces Tú / A Veces Yo (Às Vezes Tu, Às Vezes Eu)", "Un Giorno Tu Un Giorno Io"],
+    ["El Amor (La Tendresse)", "El Amor (O Amor)"],
+    ["Quiero (Quero)", "Quiero"],
+    ["Bimba (Niña)", "Niña"],
+    ["Seguiré Mi Camino (Seguirei Meu Caminho)", "Seguiré mi Camino"],
+    ["Donde Estarás (Onde Estarás)", "¿Dónde estarás?"],
+    ["Sono un pirata, Sono un signore", "Soy Un Truhán Soy Un Señor (Sou Um Charlatão Sou Um Senhor)", "Soy un Truhán, Soy un Señor"],
+    ["Se Mi Lasci Non Vale (Se Me Deixas, Não Vale)", "Si me dejas no vale"],
+    ["Limelight (Vem)", "Candilejas (Limelight)"],
+    ["Grande, grande, grande", "Never, Never, Never"],
+    ["Mi dulce Señor (My Sweet Lord)", "My Sweet Lord"],
+    ["Ne Me Quitte Pas", "If You Go Away"],
+    ["Et Maintenant", "What Now My Love"]
+];
+
+function normalizeSongSearch(value) {
+    return value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^\p{L}\p{N}]+/gu, " ").trim();
+}
+
+function getEquivalentSongTerms(query) {
+    const normalizedQuery = normalizeSongSearch(query);
+    if (!normalizedQuery) return [];
+    return equivalentSongGroups
+        .filter((group) => group.some((title) => normalizeSongSearch(title).includes(normalizedQuery)))
+        .flatMap((group) => group.map(normalizeSongSearch));
+}
+
+function isSongSearchMatch(song, normalizedQuery, equivalentSongTerms) {
+    if (!normalizedQuery) return false;
+    const normalizedSong = normalizeSongSearch(song);
+    return normalizedSong.includes(normalizedQuery) || equivalentSongTerms.includes(normalizedSong);
+}
+
 function renderAlbums() {
     updateAlbumCategoryControls();
     const query = searchInput.value.trim().toLowerCase();
+    const normalizedQuery = normalizeSongSearch(query);
+    const equivalentSongTerms = getEquivalentSongTerms(query);
     const categoryAlbums = activeAlbumCategory === "all"
         ? miColeccion
         : miColeccion.filter((album) => albumCategoryOf(album) === activeAlbumCategory);
     const searchAlbums = query ? miColeccion : categoryAlbums;
     const visibleAlbums = searchAlbums.filter((album) => {
-        const matchesQuery = [album.album, album.artista, album.lugarCompra, ...album.canciones]
+        const matchesText = [album.album, album.artista, album.lugarCompra]
             .some((value) => value.toLowerCase().includes(query));
+        const matchesSong = album.canciones.some((song) => isSongSearchMatch(song, normalizedQuery, equivalentSongTerms));
+        const matchesQuery = matchesText || matchesSong;
         return matchesQuery;
     });
     albumTotalSongs.textContent = visibleAlbums.reduce((total, album) => total + album.canciones.length, 0);
@@ -2270,33 +2559,39 @@ function renderAlbums() {
     const visibleSongs = visibleAlbums.flatMap((album) => album.canciones.map((song) => ({
         song,
         source: album.album,
-        artist: album.artista
+        artist: album.artista,
+        matchesSearch: isSongSearchMatch(song, normalizedQuery, equivalentSongTerms)
     })));
 
     shelf.hidden = false;
     albumGrid.hidden = albumSongMode;
     albumSongsView.hidden = !albumSongMode;
     albumSongsList.innerHTML = visibleSongs.map((track) => `
-        <li><a class="track-number" href="${spotifySearchUrl(track.song, track.artist)}" target="_blank" rel="noopener" aria-label="Buscar ${track.song} de ${track.artist} en Spotify" title="Buscar en Spotify"></a><span>${track.song}</span><small>${track.source} · ${track.artist}</small></li>
+        <li><a class="track-number${track.matchesSearch ? " is-search-match" : ""}" href="${spotifySearchUrl(track.song, track.artist)}" target="_blank" rel="noopener" aria-label="Buscar ${track.song} de ${track.artist} en Spotify" title="Buscar en Spotify"></a><span>${track.song}</span><small>${track.source} · ${track.artist}</small></li>
     `).join("");
     albumSongsCount.textContent = `${visibleSongs.length} ${visibleSongs.length === 1 ? "canción" : "canciones"}`;
 
     contenedorColumnas.innerHTML = "";
-    Array.from({ length: miColeccion.length }, (_, index) => index + 1).forEach((id, index) => {
+    Array.from({ length: miColeccion.length }, (_, index) => index).forEach((index) => {
         const album = miColeccion[index];
         const columna = document.createElement("div");
         columna.className = "columna-disco disco-lomo";
         columna.tabIndex = 0;
-        columna.dataset.albumId = String(id);
-        const posicion = posicionesEstante[id] || { x: 4 + (index / (miColeccion.length - 1)) * 88 };
+        columna.dataset.albumId = String(album.id);
+        const posicion = posicionesEstante[album.id] || { x: (index / miColeccion.length) * 100 };
         columna.style.left = `${posicion.x}%`;
         columna.style.zIndex = String(100 - index);
         columna.setAttribute("role", "img");
-        columna.setAttribute("aria-label", album ? `Lomo de ${album.album}` : `Disco ${id} sin vincular`);
-        const spineImageId = ((id - 1) % 69) + 1;
+        columna.setAttribute("aria-label", `Lomo de ${album.album}`);
+        const spineImageId = (index % 69) + 1;
         columna.style.backgroundImage = `url("IMAGES/disc ${spineImageId}.png")`;
         columna.style.backgroundPosition = "center";
-        activarArrastre(columna);
+        if (canArrangeShelf) {
+            activarArrastre(columna);
+            columna.style.cursor = "grab";
+        } else {
+            columna.style.cursor = "default";
+        }
 
         if (album) {
             columna.setAttribute("role", "button");
@@ -2341,8 +2636,14 @@ function renderAlbums() {
 
         contenedorColumnas.appendChild(columna);
     });
+    ajustarAnchoLomos();
 
-    albumGrid.innerHTML = visibleAlbums.map((album, index) => `
+    albumGrid.innerHTML = visibleAlbums.map((album, index) => {
+        const spotifyArtist = album.id === 56 ? "" : album.artista;
+        const searchDescription = (title) => spotifyArtist
+            ? `Buscar ${title} de ${spotifyArtist} en Spotify`
+            : `Buscar ${title} en Spotify`;
+        return `
         <article class="album-card" tabindex="0" style="animation-delay: ${index * 60}ms">
             <div class="album-art">
                 <img src="${album.imagen}" alt="Portada de ${album.album}" loading="lazy" onerror="this.src='https://via.placeholder.com/900x900?text=Imagen+no+disponible'">
@@ -2351,7 +2652,7 @@ function renderAlbums() {
                         <span>Lista de canciones</span>
                         <span>${album.canciones.length} temas</span>
                     </div>
-                    <ol>${album.canciones.map((song, index) => `<li><a class="track-number" href="${spotifySearchUrl(song, album.artista)}" target="_blank" rel="noopener" aria-label="Buscar ${song} de ${album.artista} en Spotify" title="Buscar en Spotify">${index + 1}.</a><span>${song}</span></li>`).join("")}</ol>
+                    <ol>${album.canciones.map((song, index) => `<li><a class="track-number${isSongSearchMatch(song, normalizedQuery, equivalentSongTerms) ? " is-search-match" : ""}" href="${spotifySearchUrl(song, spotifyArtist)}" target="_blank" rel="noopener" aria-label="${searchDescription(song)}" title="Buscar en Spotify">${index + 1}.</a><span>${song}</span></li>`).join("")}</ol>
                 </div>
             </div>
             <div class="album-info">
@@ -2362,16 +2663,28 @@ function renderAlbums() {
                         <p class="album-location">${album.lugarCompra}</p>
                     </div>
                 </div>
-                <div class="album-meta"><strong class="album-format album-format--${albumCategoryOf(album)}">${albumFormatLabels[albumCategoryOf(album)] || "LP"}</strong>${album.canciones.length} temas<a class="spotify-link" href="${spotifySearchUrl(album.album, album.artista)}" target="_blank" rel="noopener" aria-label="Buscar ${album.album} de ${album.artista} en Spotify" title="Buscar en Spotify">♫</a></div>
+                <div class="album-meta"><strong class="album-format album-format--${albumCategoryOf(album)}">${albumFormatLabels[albumCategoryOf(album)] || "LP"}</strong>${album.canciones.length} temas<a class="spotify-link" href="${spotifySearchUrl(album.album, spotifyArtist)}" target="_blank" rel="noopener" aria-label="${searchDescription(album.album)}" title="Buscar en Spotify">♫</a></div>
             </div>
         </article>
-    `).join("");
+    `;
+    }).join("");
 
     const formattedCount = String(visibleAlbums.length).padStart(2, "0");
     count.textContent = formattedCount;
     footerCount.textContent = `${formattedCount} ${visibleAlbums.length === 1 ? "disco" : "discos"} en el estante`;
     emptyState.hidden = visibleAlbums.length !== 0;
 }
+
+function ajustarAnchoLomos() {
+    const shelfWidth = contenedorColumnas.clientWidth;
+    if (!shelfWidth) return;
+    const spineWidth = Math.min(15, shelfWidth / miColeccion.length);
+    contenedorColumnas.querySelectorAll(".disco-lomo").forEach((spine) => {
+        spine.style.width = `${spineWidth}px`;
+    });
+}
+
+window.addEventListener("resize", ajustarAnchoLomos, { passive: true });
 
 function activarArrastre(columna) {
     columna.addEventListener("pointerdown", (event) => {
@@ -2407,8 +2720,7 @@ function activarArrastre(columna) {
             x: parseFloat(columna.style.left)
         };
         try {
-            localStorage.setItem("posicionesEstanteRespaldo", JSON.stringify(posicionesEstante));
-            localStorage.setItem("posicionesEstante", JSON.stringify(posicionesEstante));
+            localStorage.setItem(shelfPositionStorageKey, JSON.stringify(posicionesEstante));
         } catch {
             // El orden permanece durante la sesión aunque no se pueda guardar.
         }
@@ -2453,7 +2765,8 @@ function fechaComoNumero(fecha) {
 }
 
 function spotifySearchUrl(song, artist) {
-    return `https://open.spotify.com/search/${encodeURIComponent(`${song} ${artist}`)}`;
+    const query = [song, artist].filter(Boolean).join(" ");
+    return `https://open.spotify.com/search/${encodeURIComponent(query)}`;
 }
 
 function findSpotifyTrack(query) {
@@ -2526,8 +2839,40 @@ function renderConcerts() {
 
 let activeView = "albums";
 
+function normalizeWishlistTitle(value) {
+    return value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^\p{L}\p{N}]+/gu, " ").trim();
+}
+
+function getAvailableWishlistItems() {
+    return wishlistItems.filter((item) => !miColeccion.some((album) =>
+        normalizeWishlistTitle(album.album) === normalizeWishlistTitle(item.title)
+        && normalizeWishlistTitle(album.artista) === normalizeWishlistTitle(item.artist)
+    ));
+}
+
+function updateWishlistCounts() {
+    const availableItems = getAvailableWishlistItems();
+    const itemCount = availableItems.length;
+    const formattedCount = String(itemCount).padStart(2, "0");
+    const formatCounts = availableItems.reduce((counts, item) => {
+        counts[item.format] = (counts[item.format] || 0) + 1;
+        return counts;
+    }, {});
+    const formatSummary = Object.entries(formatCounts)
+        .map(([format, count]) => `${String(count).padStart(2, "0")} ${format}`)
+        .join(" <i></i> ");
+
+    wishlistCount.textContent = formattedCount;
+    wishlistTabCount.textContent = formattedCount;
+    wishlistTab.setAttribute("aria-label", `Abrir canasta, ${itemCount} ${itemCount === 1 ? "disco" : "discos"}`);
+    wishlistFormatSummary.innerHTML = formatSummary;
+}
+
+updateWishlistCounts();
+
 function renderWishlist() {
-    wishlistGrid.innerHTML = wishlistItems.map((item, index) => {
+    const availableItems = getAvailableWishlistItems();
+    wishlistGrid.innerHTML = availableItems.map((item, index) => {
         const displayTitle = item.displayTitle || item.title;
         const searchUrl = new URL("https://www.discogs.com/search/");
         searchUrl.searchParams.set("q", `${item.title} ${item.artist} ${item.format}`);
@@ -2547,10 +2892,8 @@ function renderWishlist() {
             </article>
         `;
     }).join("");
-    const count = String(wishlistItems.length).padStart(2, "0");
-    wishlistCount.textContent = count;
-    wishlistTabCount.textContent = count;
-    footerCount.textContent = `${wishlistItems.length} discos en la canasta`;
+    updateWishlistCounts();
+    footerCount.textContent = `${availableItems.length} discos en la canasta`;
 }
 
 function setActiveView(view) {

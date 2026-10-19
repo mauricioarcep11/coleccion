@@ -832,6 +832,8 @@ h2 { margin: 0; font-size: clamp(1.65rem, 3vw, 2.5rem); letter-spacing: -.07em; 
 .info-hover li { display: flex; align-items: baseline; gap: 4px; }
 .track-number { flex: 0 0 18px; color: var(--coral); font-family: var(--mono); font-size: 10px; text-decoration: none; transition: color .2s, transform .2s; }
 .track-number:hover, .track-number:focus-visible { color: var(--acid); transform: translateX(2px); }
+.track-number.is-search-match { color: #8bcf62; font-weight: 800; }
+.songs-list li .track-number.is-search-match::before { color: #8bcf62; }
 
 .album-info { display: flex; justify-content: space-between; gap: 15px; padding: 14px 0 0; border-bottom: 1px solid var(--line); }
 .album-title { margin: 0 0 5px; font-size: 15px; font-weight: 800; letter-spacing: -.04em; }
