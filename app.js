@@ -1786,6 +1786,42 @@ try {
 
 const misConciertos = [
     {
+        gira: "Los mejores años de nuestra vida",
+        setlistUrl: "https://www.setlist.fm/setlist/hombres-g/2026/estadio-nacional-lima-peru-134a45dd.html",
+        artista: "Hombres G",
+        fecha: "29 de octubre de 2026",
+        lugar: "Estadio Nacional, Perú",
+        imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRL1VwKtE9_1LBmxym_HAQNZkMdn03NG1ExBu4B7-lseomWKoBKattKifOq&s=10",
+        canciones: [
+            "Voy a pasármelo bien",
+            "El ataque de las chicas cocodrilo",
+            "Una mujer de bandera",
+            "Sólo otra vez",
+            "Chico, tienes que cuidarte",
+            "Me siento bien",
+            "Si no te tengo a ti",
+            "Un par de palabras",
+            "Te necesito",
+            "Dos imanes",
+            "Huellas en la bajamar",
+            "¿Qué soy yo para ti?",
+            "Lo noto",
+            "Te quiero",
+            "Indiana",
+            "Gilipollas",
+            "Nassau",
+            "Suéltate el pelo",
+            "El cóndor pasa",
+            "Visite nuestro bar",
+            "Marta tiene un marcapasos",
+            "Los mejores años de nuestra vida",
+            "Temblando",
+            "Venezia",
+            "Devuélveme a mi chica",
+            "Espionage"
+        ]
+    },
+    {
         gira: "Raphaelísimo",
         setlistUrl: "https://www.setlist.fm/setlist/raphael/2026/anfiteatro-del-parque-de-la-exposicion-lima-peru-7b772e9c.html",
         artista: "Raphael",
